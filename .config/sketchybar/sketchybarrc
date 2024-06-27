@@ -1,0 +1,112 @@
+# This is a demo config to showcase some of the most important commands.
+# It is meant to be changed and configured, as it is intentionally kept sparse. For a (much) more advanced configuration example see my dotfiles:
+# https://github.com/FelixKratz/dotfiles
+
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+source "$CONFIG_DIR/colors.sh"
+
+##### Bar Appearance #####
+# Configuring the general appearance of the bar.
+# These are only some of the options available. For all options see:
+# https://felixkratz.github.io/SketchyBar/config/bar
+# If you are looking for other colors, see the color picker:
+# https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
+
+sketchybar --bar position=top height=32 color=$BAR
+
+##### Changing Defaults #####
+# We now change some default values, which are applied to all further items.
+# For a full list of all available item properties see:
+# https://felixkratz.github.io/SketchyBar/config/items
+
+default=(
+  padding_left=5
+  padding_right=5
+  icon.font="Iosevka Nerd Font:Regular:16.0"
+  label.font="Iosevka:Bold:14.0"
+  icon.color=0xffffffff
+  label.color=0xffffffff
+  icon.padding_left=4
+  icon.padding_right=4
+  label.padding_left=4
+  label.padding_right=4
+)
+sketchybar --default "${default[@]}"
+
+##### Adding Mission Control Space Indicators #####
+# Let's add some mission control spaces:
+# https://felixkratz.github.io/SketchyBar/config/components#space----associate-mission-control-spaces-with-an-item
+# to indicate active and available mission control spaces.
+source "$PLUGIN_DIR/spaces.sh"
+
+
+
+
+##### Adding Left Items #####
+# We add some regular items to the left side of the bar, where
+# only the properties deviating from the current defaults need to be set
+
+##### Adding Right Items #####
+# In the same way as the left items we can add items to the right side.
+# Additional position (e.g. center) are available, see:
+# https://felixkratz.github.io/SketchyBar/config/items#adding-items-to-sketchybar
+#
+
+# Some items refresh on a fixed cycle, e.g. the clock runs its script once
+# every 10s. Other items respond to events they subscribe to, e.g. the
+# volume.sh script is only executed once an actual change in system audio
+# volume is registered. More info about the event system can be found here:
+# https://felixkratz.github.io/SketchyBar/config/events
+
+
+sketchybar --add item clock right \
+           --set clock update_freq=10 icon=  script="$PLUGIN_DIR/clock.sh" \
+           --set clock label.color=$MUTED \
+           --set clock icon.color=$MUTED \
+           --add item volume right \
+           --set volume script="$PLUGIN_DIR/volume.sh" \
+           --subscribe volume volume_change \
+           --set volume label.color=$MUTED \
+           --set volume icon.color=$MUTED \
+           --add item battery right \
+           --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
+           --set battery label.color=$MUTED \
+           --set battery icon.color=$MUTED \
+           --subscribe battery system_woke power_source_change
+
+sketchybar --add item net right                  \
+            --set net icon.font="SF Symbols:Regular:16.0"\
+           --set net script="$PLUGIN_DIR/net.sh" \
+                     updates=on                  \
+                     label.drawing=off           \
+           --subscribe net wifi_change
+
+
+sketchybar -m --add item yabai_mode right \
+              --set yabai_mode update_freq=10 \
+              --set yabai_mode label.color=$MUTED \
+              --set yabai_mode label.font="Iosevka Nerd Font:Regular:14.0" \
+              --set yabai_mode script="$PLUGIN_DIR/yabai_mode.sh" \
+              --set yabai_mode click_script="$PLUGIN_DIR/yabai_mode_click.sh" \
+              --subscribe yabai_mode space_change
+
+sketchybar	   --add item focus right					\
+		   --set focus							\
+			 icon=""\
+			 script="$PLUGIN_DIR/focus.sh"				\
+		   --add event focus_on "_NSDoNotDisturbEnabledNotification"	\
+		   --add event focus_off "_NSDoNotDisturbDisabledNotification"	\
+		   --subscribe focus focus_on focus_off				\
+
+sketchybar --add item media e \
+           --set media label.color=$LIME \
+                       label.max_chars=30 \
+                       icon.padding_left=0 \
+                       icon=􀑪             \
+                       icon.color=$LIME   \
+                       background.drawing=off \
+                       script="$PLUGIN_DIR/media.sh" \
+           --subscribe media media_change
+
+##### Force all scripts to run the first time (never do this in a script) #####
+sketchybar --update
