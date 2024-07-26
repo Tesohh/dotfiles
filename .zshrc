@@ -15,7 +15,7 @@ jmain() {
 }
 
 p() {
-  cd "$(find ~/Developer ~/.config -mindepth 1 -maxdepth 1 -type d | fzf)"
+  cd "$(find ~/Developer ~/dotfiles ~/dotfiles/.config -mindepth 1 -maxdepth 1 -type d | fzf)"
 }
 
 function workdir
