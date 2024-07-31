@@ -26,6 +26,10 @@ function Lualine_harpoon()
 	return s
 end
 
+function Lualine_debugg()
+	return require("dap").status()
+end
+
 return {
 	"nvim-lualine/lualine.nvim",
 	-- opts = {
