@@ -14,4 +14,5 @@ Personal dotfiles, managed with GNU stow
   - [ ] nvim spider to move through camel case with leader{w, e, b}
   - [ ] try out incline.nvim
   - [x] dap
+    - [ ] Minimize dapui clutter, only show needed panes in bottom bar
   - [ ] learn f and t motions
