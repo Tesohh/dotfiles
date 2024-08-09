@@ -16,3 +16,4 @@ Personal dotfiles, managed with GNU stow
   - [x] dap
     - [ ] Minimize dapui clutter, only show needed panes in bottom bar
   - [ ] learn f and t motions
+  - [x] plugin support finally after all these years
