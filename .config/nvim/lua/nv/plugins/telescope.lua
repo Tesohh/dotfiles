@@ -5,9 +5,9 @@ return {
         dependencies = { "nvim-lua/plenary.nvim" },
         opts = {
             pickers = {
-                find_files = {
-                    theme = "dropdown",
-                },
+                -- find_files = {
+                --     theme = "dropdown",
+                -- },
             },
         },
         config = function(_, opts)
@@ -16,7 +16,7 @@ return {
             vim.keymap.set({ "n", "x" }, "<leader>f", function()
                 require("telescope.builtin").find_files({
                     hidden = true,
-                    theme = "dropdown",
+                    -- theme = "dropdown",
                     file_ignore_patterns = { "node_modules", ".git", "*.png", "*.wav", "*.mp3", "*.o", "*.ttf" },
                 })
             end)

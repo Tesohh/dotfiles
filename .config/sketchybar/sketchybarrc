@@ -98,7 +98,7 @@ sketchybar	   --add item focus right					\
 		   --add event focus_off "_NSDoNotDisturbDisabledNotification"	\
 		   --subscribe focus focus_on focus_off				\
 
-sketchybar --add item media e \
+sketchybar --add item media right \
            --set media label.color=$LIME \
                        label.max_chars=30 \
                        icon.padding_left=0 \
