@@ -5,16 +5,22 @@ yabai -m config mouse_modifier ctrl
 yabai -m config mouse_action1 move 
 yabai -m config mouse_action2 resize 
 
-#yabai -m config top_padding    25
-#yabai -m config bottom_padding 25
-#yabai -m config left_padding   25
-#yabai -m config right_padding  25
-#yabai -m config window_gap     25
-
 yabai -m config auto_balance off
 yabai -m config split_ratio 0.50
 
-yabai -m config --display 2 top_padding 32 
+# for event in "mission_control_exit" "display_added" "display_removed" "display_moved"; do
+#   yabai -m signal --add event=$event action="~/.config/yabai/yabai_screenspadding.sh"
+# done
+
+NOTCH_UUID="37D8832A-2D66-02CA-B9F7-8F30A301B230"
+NORMAL_BAR=32
+NOTCH_BAR=0
+
+yabai -m signal --add event=display_added action="if [[ \"\$(yabai -m query --displays | jq \".[\$YABAI_DISPLAY_ID].uuid\")\" =~ \"$NOTCH_UUID\" ]]; then yabai -m config external_bar main:$NORMAL_BAR:0; elif [[ \"\$(yabai -m query --displays | jq '.[].uuid')\" =~ \"$NOTCH_UUID\" ]]; then yabai -m config external_bar main:$NORMAL_BAR:0; else yabai -m config external_bar all:$NORMAL_BAR:0; fi"
+yabai -m signal --add event=display_removed action="if [[ \"\$(yabai -m query --displays | jq \".[\$YABAI_DISPLAY_ID].uuid\")\" =~ \"$NOTCH_UUID\" ]]; then yabai -m config external_bar all:$NORMAL_BAR:0; elif [[ \"\$(yabai -m query --displays | jq '.[].uuid')\" =~ \"$NOTCH_UUID\" ]]; then yabai -m config external_bar all:$NOTCH_BAR:0; fi"
+
+# global settings
+if [[ "$(yabai -m query --displays | jq '.[].uuid')" =~ "$NOTCH_UUID" ]]; then if [ "$(yabai -m query --displays | jq length)" -gt "1" ]; then yabai -m config external_bar main:$NORMAL_BAR:0; else yabai -m config external_bar all:$NOTCH_BAR:0; fi else yabai -m config external_bar all:$NORMAL_BAR:0; fi
 
 yabai -m rule --add app="^Impostazioni di Sistema$" manage=off
 yabai -m rule --add app="^Calcolatrice$" manage=off
