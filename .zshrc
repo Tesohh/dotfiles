@@ -15,7 +15,7 @@ jmain() {
 }
 
 p() {
-  cd "$(find ~/Developer ~/dotfiles ~/dotfiles/.config -mindepth 1 -maxdepth 1 -type d | fzf)"
+  cd "$(find ~/Developer ~/Developer/scratchpad ~/dotfiles ~/dotfiles/.config ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents -mindepth 1 -maxdepth 1 -type d | fzf)"
 }
 
 function workdir
@@ -32,7 +32,7 @@ alias GIAVADEVVELOMMENKITT="javac"
 alias tms="tmux-sessionizer"
 alias cl="clear"
 
-export OBSIDIAN="~/Library/Mobile Documents/iCloud~md~obsidian/Documents/obsidian"
+export OBSIDIAN="~/Library/Mobile Documents/iCloud~md~obsidian/Documents/bigvault/"
 export PATH=$PATH:$HOME/go/bin
 
 export FZF_DEFAULT_OPTS="
