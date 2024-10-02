@@ -23,6 +23,9 @@ yabai -m signal --add event=display_removed action="if [[ \"\$(yabai -m query --
 if [[ "$(yabai -m query --displays | jq '.[].uuid')" =~ "$NOTCH_UUID" ]]; then if [ "$(yabai -m query --displays | jq length)" -gt "1" ]; then yabai -m config external_bar main:$NORMAL_BAR:0; else yabai -m config external_bar all:$NOTCH_BAR:0; fi else yabai -m config external_bar all:$NORMAL_BAR:0; fi
 
 yabai -m rule --add app="^Impostazioni di Sistema$" manage=off
+yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Calcolatrice$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Musica$" title="^Mini Player$" manage=off
+yabai -m rule --add app="^Music$" title="^Mini Player$" manage=off
 yabai -m rule --add title="^Smarciopoly$" manage=off

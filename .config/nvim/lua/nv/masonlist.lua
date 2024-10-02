@@ -8,6 +8,8 @@ return {
         "html",
         "cssls",
         "tsserver",
+        "templ",
+        "htmx",
         --
 
         "pyright",

@@ -5,13 +5,8 @@ if vim.loop.os_uname().sysname == "Darwin" then
 end
 
 if vim.g.vscode then
-    require("vscode.keymaps")
-
-    vim.opt.ignorecase = true
-    vim.opt.smartcase = true
-    vim.opt.hlsearch = true
-
-    vim.opt.clipboard = "unnamedplus"
+    require("vsc.keymaps")
+    require("vsc.opts")
 else
     -- ordinary Neovim
     require("nv.opts")

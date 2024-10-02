@@ -52,3 +52,8 @@ yabind(CA, "b", "space --balance")
 -- change layouts
 yabind(SCA, "s", "space --layout stack")
 yabind(SCA, "t", "space --layout bsp")
+
+-- restart
+hs.hotkey.bind(SCA, "r", function()
+    hs.execute("/opt/homebrew/bin/yabai --restart-service")
+end)

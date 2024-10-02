@@ -27,9 +27,10 @@ case $service in
   "iPhone USB")         icon=$NET_USB;;
   "Thunderbolt Bridge") icon=$NET_THUNDERBOLT;;
 
+  #ssid =  networksetup -getairportnetwork "$device" \
+    #| sed -n "s/Current Wi-Fi Network: \(.*\)/\1/p"
   Wi-Fi)
-    ssid=$(networksetup -getairportnetwork "$device" \
-      | sed -n "s/Current Wi-Fi Network: \(.*\)/\1/p")
+    ssid=$(system_profiler SPAirPortDataType | awk '/Current Network/ {getline;$1=$1;print $0 | "tr -d ':'";exit}')
     case $ssid in
       *iPhone*) icon=$NET_HOTSPOT;;
       "")       icon=$NET_DISCONNECTED; color=$RED;;
@@ -44,5 +45,13 @@ case $service in
     icon=$(test "$status" = On && echo "$NET_DISCONNECTED" || echo "$NET_OFF")
     color=$RED;;
 esac
+
+touch ~/dotfiles/logs/device.txt
+touch ~/dotfiles/logs/service.txt
+touch ~/dotfiles/logs/ssid.txt
+
+echo "Device: $device" >> ~/dotfiles/logs/device.txt
+echo "Service: $service" >> ~/dotfiles/logs/service.txt
+echo "SSID: $ssid" >> ~/dotfiles/logs/ssid.txt
 
 sketchybar --animate sin 5 --set "$NAME" icon="$icon" icon.color="$color"

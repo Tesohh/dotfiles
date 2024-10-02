@@ -1,15 +1,15 @@
-local vscode = require("vscode-neovim")
+local vscode = require("vscode")
 local vskeymap = function(modes, lhs, cmd)
-	vim.keymap.set(modes, lhs, function()
-		vscode.action(cmd)
-	end)
+    vim.keymap.set(modes, lhs, function()
+        vscode.action(cmd)
+    end)
 end
 local vskeymapmulti = function(modes, lhs, cmd)
-	vim.keymap.set(modes, lhs, function()
-		for i, act in ipairs(cmd) do
-			vscode.action(cmd)
-		end
-	end)
+    vim.keymap.set(modes, lhs, function()
+        for i, act in ipairs(cmd) do
+            vscode.action(cmd)
+        end
+    end)
 end
 
 -- disable arrows in all modes
