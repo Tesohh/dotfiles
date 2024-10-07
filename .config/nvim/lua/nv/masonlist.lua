@@ -24,7 +24,7 @@ return {
         "prettierd",
 
         -- py
-        "black",
+        -- "black",
 
         "goimports",
     },
