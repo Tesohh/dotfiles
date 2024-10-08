@@ -35,11 +35,16 @@ alias cl="clear"
 export OBSIDIAN="~/Library/Mobile Documents/iCloud~md~obsidian/Documents/bigvault/"
 export PATH=$PATH:$HOME/go/bin
 
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 export FZF_DEFAULT_OPTS="
 	--color=fg:#908caa,bg:#191724,hl:#ebbcba
 	--color=fg+:#e0def4,bg+:#26233a,hl+:#ebbcba
 	--color=border:#403d52,header:#31748f,gutter:#191724
 	--color=spinner:#f6c177,info:#9ccfd8,separator:#403d52
 	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
