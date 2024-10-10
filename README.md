@@ -5,6 +5,13 @@ Personal dotfiles, managed with GNU stow
 - WM: Aerospace
 - Editor: neovim
 - Terminal: kitty with tmux
+- Font: Iosevka Extended
+- Theme: Rose pine
+
+Notes:
+- I use every app maximized, almost never tile
+- I have every macOS trackpad navigation gesture disabled
+- I use the tmux-sessionizer script, so each "project" has it's own session in tmux
 
 <img width="1470" alt="image" src="https://github.com/user-attachments/assets/fce032c3-296c-49f9-813c-8ae81d79e32b">
 
