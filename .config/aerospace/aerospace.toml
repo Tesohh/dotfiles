@@ -126,6 +126,11 @@ alt-0 = 'workspace 10'
 alt-q = 'workspace q'
 alt-w = 'workspace w'
 alt-e = 'workspace e'
+alt-r = 'workspace r'
+# alt-a = 'workspace a'
+# alt-s = 'workspace s'
+# alt-d = 'workspace d'
+# alt-f = 'workspace f'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'
@@ -141,9 +146,15 @@ alt-shift-0 = 'move-node-to-workspace 10'
 alt-shift-q = 'move-node-to-workspace q'
 alt-shift-w = 'move-node-to-workspace w'
 alt-shift-e = 'move-node-to-workspace e'
+alt-shift-r = 'move-node-to-workspace r'
+# alt-shift-a = 'move-node-to-workspace a'
+# alt-shift-s = 'move-node-to-workspace s'
+# alt-shift-d = 'move-node-to-workspace d'
+# alt-shift-f = 'move-node-to-workspace f'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
-alt-tab = 'workspace-back-and-forth'
+# temporarily disabled to learn keys better
+# alt-tab = 'workspace-back-and-forth'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 

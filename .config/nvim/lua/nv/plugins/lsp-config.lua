@@ -70,9 +70,9 @@ return {
 
 				["tailwindcss"] = function()
 					local capabilities = require("cmp_nvim_lsp").default_capabilities()
-					lspconfig.tailwindcss.setup({
+					require("lspconfig").tailwindcss.setup({
 						capabilities = capabilities,
-						filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+						filetypes = { "templ", "astro", "javascript", "typescript", "react", "svelte" },
 						settings = {
 							tailwindCSS = {
 								includeLanguages = { templ = "html" },
