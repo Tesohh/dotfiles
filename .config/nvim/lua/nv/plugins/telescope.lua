@@ -12,6 +12,7 @@ return {
         },
         config = function(_, opts)
             require("telescope").setup(opts)
+            require("telescope").load_extension("luasnip")
 
             vim.keymap.set({ "n", "x" }, "<leader>f", function()
                 require("telescope.builtin").find_files({
@@ -33,5 +34,8 @@ return {
     },
     {
         "nvim-telescope/telescope-symbols.nvim",
+    },
+    {
+        "benfowler/telescope-luasnip.nvim",
     },
 }
