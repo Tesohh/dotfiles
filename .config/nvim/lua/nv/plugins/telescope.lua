@@ -1,41 +1,66 @@
 return {
-    {
-        "nvim-telescope/telescope.nvim",
-        tag = "0.1.5",
-        dependencies = { "nvim-lua/plenary.nvim" },
-        opts = {
-            pickers = {
-                -- find_files = {
-                --     theme = "dropdown",
-                -- },
-            },
-        },
-        config = function(_, opts)
-            require("telescope").setup(opts)
-            require("telescope").load_extension("luasnip")
-
-            vim.keymap.set({ "n", "x" }, "<leader>f", function()
-                require("telescope.builtin").find_files({
-                    hidden = true,
-                    -- theme = "dropdown",
-                    file_ignore_patterns = { "node_modules", ".git", "*.png", "*.wav", "*.mp3", "*.o", "*.ttf" },
-                })
-            end)
-            vim.keymap.set({ "n", "x" }, "<leader>sf", "<cmd>Telescope git_files theme=dropdown<cr>")
-            -- vim.keymap.set({ "n", "x" }, ";", "<cmd>Telescope buffers theme=dropdown<cr>")
-            vim.keymap.set({ "n", "x" }, "<leader>sw", "<cmd>Telescope live_grep<cr>")
-            vim.keymap.set({ "n", "x" }, "<leader>ss", "<cmd>Telescope lsp_document_symbols theme=ivy<cr>")
-            vim.keymap.set({ "n", "x" }, "<leader>S", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>")
-            vim.keymap.set({ "n", "x" }, "<leader>se", "<cmd>Telescope symbols theme=ivy<cr>")
-            vim.keymap.set({ "n", "x" }, "<leader>sf", "<cmd>Telescope find_files theme=dropdown<cr>")
-            vim.keymap.set({ "n", "x" }, "<leader>gc", "<cmd>Telescope git_commits<cr>")
-            -- vim.keymap.set({ "n", "x" }, "<leader>gs", "<cmd>Telescope git_status<cr>")
-        end,
-    },
-    {
-        "nvim-telescope/telescope-symbols.nvim",
-    },
-    {
-        "benfowler/telescope-luasnip.nvim",
-    },
+	{
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.8",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {},
+		config = function(_, opts)
+			require("telescope").setup(opts)
+		end,
+		cmd = "Telescope",
+		keys = {
+			{
+				"<leader>f",
+				function()
+					require("telescope.builtin").find_files({
+						hidden = true,
+						file_ignore_patterns = {
+							"node_modules",
+							".git",
+							"*.png",
+							"*.wav",
+							"*.mp3",
+							"*.o",
+							"*.ttf",
+							"*.class",
+						},
+					})
+				end,
+				desc = "search code files (exclude media, object files)",
+				mode = { "n", "x" },
+			},
+			{
+				"<leader>sf",
+				"<cmd>Telescope git_files theme=dropdown<cr>",
+				desc = "search only git files",
+				mode = { "n", "x" },
+			},
+			{
+				"<leader>sw",
+				"<cmd>Telescope live_grep<cr>",
+				desc = "search words (live grep)",
+				mode = { "n", "x" },
+			},
+			{
+				"<leader>ss",
+				"<cmd>Telescope lsp_document_symbols theme=ivy<cr>",
+				desc = "search lsp symbols",
+				mode = { "n", "x" },
+			},
+			{
+				"<leader>S",
+				"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+				desc = "search lsp symbols in workspace",
+				mode = { "n", "x" },
+			},
+			{
+				"<leader>se",
+				"<cmd>Telescope symbols theme=ivy<cr>",
+				desc = "search emojis",
+				mode = { "n", "x" },
+			},
+			{ "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "git commits", mode = { "n", "x" } },
+		},
+	},
+	{ "nvim-telescope/telescope-symbols.nvim" },
 }

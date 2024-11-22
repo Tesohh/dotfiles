@@ -34,6 +34,7 @@ alias cl="clear"
 
 export OBSIDIAN="~/Library/Mobile Documents/iCloud~md~obsidian/Documents/bigvault/"
 export PATH=$PATH:$HOME/go/bin
+export CLANG_FORMAT_STYLE_FILE=~/.config/clang-format/.clang-format
 
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"

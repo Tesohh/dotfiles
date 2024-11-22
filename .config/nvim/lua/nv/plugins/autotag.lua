@@ -1,10 +1,13 @@
 return {
-    "windwp/nvim-ts-autotag",
-    config = function(opts)
-        require("nvim-ts-autotag").setup({
-            aliases = {
-                ["templ"] = "html",
-            },
-        })
-    end,
+	"windwp/nvim-ts-autotag",
+	opts = {
+		aliases = {
+			["templ"] = "html",
+		},
+	},
+	ft = {
+		"html",
+		"xml",
+		"htmx",
+	},
 }

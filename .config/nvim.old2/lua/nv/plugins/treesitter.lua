@@ -11,5 +11,4 @@ return {
 			-- autotag = { enable = true },
 		})
 	end,
-	event = "BufRead",
 }
