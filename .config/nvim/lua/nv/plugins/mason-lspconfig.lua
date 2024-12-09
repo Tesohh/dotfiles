@@ -8,20 +8,39 @@ return {
 			"html",
 			"cssls",
 			"templ",
-			"htmx",
 			"pyright",
-			"jdtls",
 			"clangd",
+			"rust_analyzer",
+			"zls",
 		},
 	},
 	config = function(_, opts)
 		require("mason-lspconfig").setup(opts)
 		require("mason-lspconfig").setup_handlers({
 			function(server_name) -- default handler (optional)
-				local capabilities = require("blink.cmp").get_lsp_capabilities()
+				local capabilities = require("blink.cmp").get_lsp_capabilities(nil)
 				require("lspconfig")[server_name].setup({ capabilities = capabilities })
 			end,
-
+			["lua_ls"] = function()
+				require("lspconfig")["lua_ls"].setup({
+					settings = {
+						Lua = {
+							runtime = {
+								version = "LuaJIT",
+							},
+							diagnostics = {
+								globals = { "vim" },
+							},
+							workspace = {
+								library = vim.api.nvim_get_runtime_file("", true),
+							},
+							telemetry = {
+								enable = false,
+							},
+						},
+					},
+				})
+			end,
 			-- 	["lua_ls"] = function()
 			-- 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			-- 		require("lspconfig").lua_ls.setup({
@@ -73,7 +92,9 @@ return {
 			-- 	end,
 			--
 			["gopls"] = function()
+				local capabilities = require("blink.cmp").get_lsp_capabilities(nil)
 				require("lspconfig").gopls.setup({
+					capabilities = capabilities,
 					settings = {
 						gopls = {
 							completeUnimported = true,
@@ -86,29 +107,6 @@ return {
 					},
 				})
 			end,
-			--
-			-- 	-- Next, you can provide a dedicated handler for specific servers.
-			-- 	-- For example, a handler override for the `rust_analyzer`:
-			-- 	["rust_analyzer"] = function()
-			-- 		local rt = require("rust-tools")
-			-- 		rt.setup({
-			-- 			server = {
-			-- 				settings = {
-			-- 					["rust_analyzer"] = {
-			-- 						cargo = {
-			-- 							allFeatures = true,
-			-- 						},
-			-- 					},
-			-- 				},
-			-- 				on_attach = function(_, bufnr)
-			-- 					local o = { buffer = bufnr }
-			-- 					vim.keymap.set("n", "K", rt.hover_actions.hover_actions, o)
-			-- 					vim.keymap.set("n", "<leader>ca", rt.code_action_group.code_action_group, o)
-			-- 				end,
-			-- 			},
-			-- 		})
-			-- 	end,
-			-- })
 		})
 	end,
 }

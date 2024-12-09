@@ -15,6 +15,7 @@ else
 	require("nv.keymaps")
 	require("nv.niceties.highlightyank")
 	require("nv.niceties.gitc")
+	require("nv.niceties.statusline")
 	-- require("nv.tms")
 	-- require("nv.runner")
 	-- require("nv.loadsnippets")
