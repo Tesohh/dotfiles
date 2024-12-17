@@ -7,6 +7,7 @@ return {
 	-- use a release tag to download pre-built binaries
 	-- version = "v0.*",
 	branch = "main",
+	commit = "b4c6fe6",
 	build = "cargo build --release",
 
 	---@module 'blink.cmp'
@@ -19,31 +20,34 @@ return {
 		-- your own keymap.
 		keymap = { preset = "enter" },
 
-		highlight = {
-			-- sets the fallback highlight groups to nvim-cmp's highlight groups
-			-- useful for when your theme doesn't support blink.cmp
-			-- will be removed in a future release, assuming themes add support
+		appearance = {
+			-- Sets the fallback highlight groups to nvim-cmp's highlight groups
+			-- Useful for when your theme doesn't support blink.cmp
+			-- will be removed in a future release
 			use_nvim_cmp_as_default = true,
+			-- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+			-- Adjusts spacing to ensure icons are aligned
+			nerd_font_variant = "mono",
 		},
-		-- set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-		-- adjusts spacing to ensure icons are aligned
-		nerd_font_variant = "mono",
 
 		-- default list of enabled providers defined so that you can extend it
 		-- elsewhere in your config, without redefining it, via `opts_extend`
 		sources = {
-			completion = {
-				enabled_providers = { "lsp", "path", "snippets", "buffer" },
-			},
+			default = { "lsp", "path", "snippets", "buffer" },
+			cmdline = {},
 		},
 
-		-- experimental auto-brackets support
-		accept = { auto_brackets = { enabled = false } },
+		completion = {
+			-- experimental auto-brackets support
+			accept = { auto_brackets = { enabled = false } },
 
-		-- experimental signature help support
-		trigger = { signature_help = { enabled = true } },
+			-- experimental signature help support
+			trigger = {},
+		},
+
+		signature = { enabled = true },
 	},
 	-- allows extending the enabled_providers array elsewhere in your config
 	-- without having to redefine it
-	opts_extend = { "sources.completion.enabled_providers" },
+	opts_extend = { "sources.default" },
 }

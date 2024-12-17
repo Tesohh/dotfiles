@@ -9,5 +9,8 @@ return {
 		"html",
 		"xml",
 		"htmx",
+		"svelte",
+		"jsx",
+		"tsx",
 	},
 }
