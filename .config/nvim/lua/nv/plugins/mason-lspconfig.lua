@@ -107,6 +107,21 @@ return {
 					},
 				})
 			end,
+
+			["rust_analyzer"] = function()
+				local capabilities = require("blink.cmp").get_lsp_capabilities(nil)
+				require("lspconfig").rust_analyzer.setup({
+					capabilities = capabilities,
+					settings = {
+						["rust-analyzer"] = {
+							checkOnSave = {
+								enable = true, -- Enable "check on save"
+								command = "clippy", -- Use clippy instead of cargo check
+							},
+						},
+					},
+				})
+			end,
 		})
 	end,
 }
