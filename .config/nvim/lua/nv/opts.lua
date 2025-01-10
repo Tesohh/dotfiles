@@ -14,6 +14,7 @@ local opt = {
 	cmdheight = 0,
 	pumheight = 10,
 	cul = true,
+	nu = true,
 }
 
 local g = {

@@ -1,10 +1,10 @@
 return {
 	"shortcuts/no-neck-pain.nvim",
 	opts = {
-		width = 120,
+		width = 130,
 		autocmds = {
 			enableOnVimEnter = true,
-			skipEnteringNoNeckPainBuffer = false,
+			skipEnteringNoNeckPainBuffer = true,
 		},
 		buffers = {
 			wo = {
@@ -30,5 +30,6 @@ return {
 	config = function(_, opts)
 		require("no-neck-pain").setup(opts)
 		vim.keymap.set("n", "<leader>ns", "<cmd>NoNeckPainScratchPad<CR>")
+		vim.keymap.set("n", "<leader>nn", "<cmd>NoNeckPain<CR>")
 	end,
 }

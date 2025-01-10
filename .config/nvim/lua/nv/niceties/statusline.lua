@@ -23,4 +23,4 @@ function Statusline_Oily_filename()
 	end
 end
 
-vim.opt.statusline = "%{v:lua.Statusline_Oily_filename()}"
+vim.opt.statusline = "%{v:lua.Statusline_Oily_filename()} %m"
