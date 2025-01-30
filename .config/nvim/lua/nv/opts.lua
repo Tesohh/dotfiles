@@ -34,3 +34,5 @@ end
 for k, v in pairs(wo) do
 	vim.wo[k] = v
 end
+
+vim.cmd([[autocmd VimEnter * :clearjumps]])

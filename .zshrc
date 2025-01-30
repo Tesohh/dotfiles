@@ -22,6 +22,11 @@ function workdir
 {
     mkdir -p $1 && cd $1
 }
+bindkey -e
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
+bindkey "^[^H" backward-kill-word
+bindkey "^[^?" backward-kill-word
 
 alias wk="workdir"
 alias ll="ls -al"
