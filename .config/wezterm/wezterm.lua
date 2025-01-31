@@ -42,10 +42,15 @@ local function get_directories(path)
 	return directories
 end
 
+local function replace_home_path(path)
+	local home = wezterm.home_dir
+	return string.gsub(path, home, "~")
+end
+
 local function path_to_switcher_entry(path)
 	return {
 		id = path,
-		label = path,
+		label = replace_home_path(path),
 	}
 end
 
@@ -66,6 +71,28 @@ workspace_switcher.get_choices = function(_)
 
 	return entries
 end
+
+local function base_name(str)
+	return string.gsub(str, "(.*[/\\])(.*)", "%2")
+end
+
+wezterm.on("smart_workspace_switcher.workspace_switcher.chosen", function(window, workspace)
+	local gui_win = window:gui_window()
+	local base_path = base_name(workspace)
+	gui_win:set_left_status(wezterm.format({
+		{ Foreground = { Color = "gray" } },
+		{ Text = base_path .. "  " },
+	}))
+end)
+
+wezterm.on("smart_workspace_switcher.workspace_switcher.created", function(window, workspace)
+	local gui_win = window:gui_window()
+	local base_path = base_name(workspace)
+	gui_win:set_left_status(wezterm.format({
+		{ Foreground = { Color = "gray" } },
+		{ Text = base_path .. "  " },
+	}))
+end)
 
 config.default_workspace = "~"
 

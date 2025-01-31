@@ -1,9 +1,10 @@
-# Created by Zap installer
-[ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
-plug "zsh-users/zsh-autosuggestions"
-plug "zap-zsh/supercharge"
-plug "zsh-users/zsh-syntax-highlighting"
+source "$HOME/zsh-scripts/supercharge.zsh"
+source "/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "$HOME/.zsh-lazy-nvm.sh"
+
+# .zshenv
+# export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters
 
 # PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}air %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 PS1="%F{#ebbcba}%B❰%b%f %F{#9ccfd8}%n%f %F{#c4a7e7}%B%~%b%f %F{#ebbcba}%B❱%b%f%F{#eb6f92}❤ %f "
