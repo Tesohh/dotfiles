@@ -1,3 +1,4 @@
+
 # Place a copy of this config to ~/.aerospace.toml
 # After that, you can edit ~/.aerospace.toml to your liking
 
@@ -49,6 +50,11 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 #                 In this example, 24 is a default value when there is no match.
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
+
+[[on-window-detected]]
+    if.window-title-regex-substring = 'Smarciopoly'
+    run = 'layout floating'
+
 [gaps]
 inner.horizontal = 0
 inner.vertical =   0
@@ -180,3 +186,4 @@ alt-shift-h = ['join-with left', 'mode main']
 alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
+

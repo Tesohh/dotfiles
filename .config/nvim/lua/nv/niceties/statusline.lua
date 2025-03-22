@@ -23,4 +23,19 @@ function Statusline_Oily_filename()
 	end
 end
 
-vim.opt.statusline = "%{v:lua.Statusline_Oily_filename()} %m"
+function Statusline_get_git_branch()
+	if vim.bo.filetype ~= "no-neck-pain" then
+		local handle = io.popen("git rev-parse --abbrev-ref HEAD 2>/dev/null")
+		if handle then
+			local branch = handle:read("*a"):gsub("\n", "")
+			handle:close()
+			return branch ~= "" and "  " .. branch or ""
+		else
+			return ""
+		end
+	else
+		return ""
+	end
+end
+
+-- vim.opt.statusline = "%{v:lua.Statusline_Oily_filename()} %m %{v:lua.Statusline_get_git_branch()}"

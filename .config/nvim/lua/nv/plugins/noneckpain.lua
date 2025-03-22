@@ -1,7 +1,7 @@
 return {
 	"shortcuts/no-neck-pain.nvim",
 	opts = {
-		width = 130,
+		width = 120,
 		autocmds = {
 			enableOnVimEnter = true,
 			skipEnteringNoNeckPainBuffer = true,
@@ -10,19 +10,14 @@ return {
 			wo = {
 				fillchars = "eob: ",
 			},
-			bo = {
-				filetype = "md",
-			},
 			right = {
 				scratchPad = {
 					enabled = false,
-					pathToFile = "TODO.md",
 				},
 			},
 			left = {
 				scratchPad = {
 					enabled = false,
-					pathToFile = "NOTES.md",
 				},
 			},
 		},

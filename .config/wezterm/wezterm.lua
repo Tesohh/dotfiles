@@ -20,8 +20,12 @@ config.font = wezterm.font({
 	family = "Iosevka Extended",
 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
 })
+config.front_end = "WebGpu"
+config.freetype_load_target = "Normal"
+config.freetype_load_flags = "NO_BITMAP|MONOCHROME|NO_AUTOHINT"
 config.font_size = 16
 config.cell_width = 0.9
+config.line_height = 1.1
 
 config.leader = { key = "s", mods = "CTRL", timeout_milliseconds = 2000 }
 

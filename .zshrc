@@ -6,8 +6,19 @@ source "$HOME/.zsh-lazy-nvm.sh"
 # .zshenv
 # export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters
 
-# PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}air %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-PS1="%F{#ebbcba}%B❰%b%f %F{#9ccfd8}%n%f %F{#c4a7e7}%B%~%b%f %F{#ebbcba}%B❱%b%f%F{#eb6f92}❤ %f "
+# PS1="o%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}air %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+function git_branch_name()
+{
+  branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
+  if [[ $branch == "" ]];
+  then
+    :
+  else
+      echo '%F{#eb6f92}   '$branch'%f'
+  fi
+}
+setopt prompt_subst
+PS1='%F{#ebbcba}%B❰%b%f %F{#9ccfd8}%n%f %F{#c4a7e7}%B%~%b%f %F{#ebbcba}%B❱%b%f$(git_branch_name)%F{#eb6f92}❤ %f '
 
 jmain() {
     javac Main.java
