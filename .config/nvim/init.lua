@@ -1,4 +1,8 @@
 require("opts")
+local keymaps = require("keymaps")
+keymaps.apply_horizontal_movement()
+keymaps.apply_navigation()
+keymaps.apply_windows()
 
 vim.pack.add({
 	{ src = "https://github.com/rose-pine/neovim", name = "rose-pine" },
@@ -24,6 +28,9 @@ vim.pack.add({
 })
 
 require("config.rose-pine")
+require("config.lualine")
+require("config.no-neck-pain")
+require("todo-comments").setup({ keywords = { TEMP = { icon = " ", color = "error", alt = { "DELETEME" } } } })
 require("nvim-autopairs").setup({})
 require("ibl").setup({ scope = { enabled = false } })
 require("mini.icons").setup()
@@ -36,42 +43,15 @@ vim.ui.select = MiniPick.ui_select
 require("fidget").setup()
 require("oil").setup({ view_options = { show_hidden = true } })
 
-require("todo-comments").setup({
-	keywords = {
-		TEMP = { icon = " ", color = "error", alt = { "DELETEME" } },
-	},
-})
-require("no-neck-pain").setup({
-	width = 120,
-	autocmds = {
-		enableOnVimEnter = true,
-		skipEnteringNoNeckPainBuffer = true,
-	},
-	buffers = {
-		wo = {
-			fillchars = "eob: ,vert: ", -- TEMP: vert
-		},
-		right = {
-			scratchPad = {
-				enabled = false,
-			},
-		},
-		left = {
-			scratchPad = {
-				enabled = false,
-			},
-		},
-	},
-})
+keymaps.apply_pickers()
+keymaps.apply_tools()
 
-require("config.lualine")
 require("config.treesitter")
 require("config.lsp")
 require("config.blink")
 require("config.conform")
 
+keymaps.apply_lsp()
+
 require("niceties.gitc")
 require("niceties.highlightyank")
-require("niceties.ignore_ra_errors")
-
-require("keymaps")

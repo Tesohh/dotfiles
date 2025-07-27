@@ -1,1 +1,15 @@
-vim.lsp.enable({ "lua_ls", "rust_analyzer", "gopls" })
+vim.diagnostic.config({ virtual_text = true })
+
+vim.lsp.enable({
+	"clangd",
+	"cssls",
+	"emmet_language_server",
+	"gopls",
+	"html",
+	"lua_ls",
+	"pyright",
+	"svelte",
+	"rust_analyzer",
+	"tailwindcss",
+	"ts_ls",
+})
