@@ -8,21 +8,16 @@ return {
 		},
 		buffers = {
 			wo = {
-				fillchars = "eob: ,vert: ",
-			},
-			bo = {
-				filetype = "md",
+				fillchars = "eob: ",
 			},
 			right = {
 				scratchPad = {
 					enabled = false,
-					pathToFile = "TODO.md",
 				},
 			},
 			left = {
 				scratchPad = {
 					enabled = false,
-					pathToFile = "NOTES.md",
 				},
 			},
 		},
@@ -30,5 +25,6 @@ return {
 	config = function(_, opts)
 		require("no-neck-pain").setup(opts)
 		vim.keymap.set("n", "<leader>ns", "<cmd>NoNeckPainScratchPad<CR>")
+		vim.keymap.set("n", "<leader>nn", "<cmd>NoNeckPain<CR>")
 	end,
 }

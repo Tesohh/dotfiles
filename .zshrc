@@ -48,6 +48,7 @@ alias td="tmux detach"
 alias GIAVADEVVELOMMENKITT="javac"
 alias tms="tmux-sessionizer"
 alias cl="clear"
+alias tree="tree -C"
 
 export OBSIDIAN="~/Library/Mobile Documents/iCloud~md~obsidian/Documents/bigvault/"
 export PATH=$PATH:$HOME/go/bin

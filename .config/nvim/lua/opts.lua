@@ -25,3 +25,4 @@ vim.opt.pumheight = 10
 vim.opt.cursorline = true
 vim.opt.number = true
 vim.opt.clipboard = "unnamedplus"
+vim.wo.fillchars = "vert: " -- TEMP: vert
