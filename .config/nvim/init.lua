@@ -25,6 +25,8 @@ vim.pack.add({
 	{ src = "https://github.com/rafamadriz/friendly-snippets" },
 	{ src = "https://github.com/saghen/blink.cmp", version = "v1.6.0" },
 	{ src = "https://github.com/stevearc/conform.nvim" },
+	{ src = "https://github.com/sindrets/diffview.nvim" },
+	{ src = "https://github.com/NeogitOrg/neogit" },
 })
 
 require("config.rose-pine")
@@ -42,6 +44,7 @@ require("mini.pick").setup({ window = { config = { width = 80, height = 20 } } }
 vim.ui.select = MiniPick.ui_select
 require("fidget").setup()
 require("oil").setup({ view_options = { show_hidden = true } })
+require("neogit").setup()
 
 keymaps.apply_pickers()
 keymaps.apply_tools()

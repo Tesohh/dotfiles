@@ -42,7 +42,7 @@ end
 
 -- Tools
 function M.apply_tools()
-	vim.keymap.set({ "n", "x" }, "<leader>gs", MiniGit.show_at_cursor)
+	vim.keymap.set({ "n", "x" }, "<leader>gs", "<cmd>Neogit kind=vsplit<CR>")
 end
 
 return M
