@@ -49,7 +49,7 @@ require("no-neck-pain").setup({
 	},
 	buffers = {
 		wo = {
-			fillchars = "eob: ,vert: ",
+			fillchars = "eob: ,vert: ", -- TEMP: vert
 		},
 		right = {
 			scratchPad = {
