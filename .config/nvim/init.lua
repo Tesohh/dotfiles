@@ -22,11 +22,18 @@ vim.pack.add({
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "nvim-treesitter/nvim-treesitter", branch = "main" },
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
+	{ src = "https://github.com/mason-org/mason.nvim" },
+	{ src = "https://github.com/mason-org/mason-lspconfig.nvim" },
+	{ src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" },
 	{ src = "https://github.com/rafamadriz/friendly-snippets" },
 	{ src = "https://github.com/saghen/blink.cmp", version = "v1.6.0" },
 	{ src = "https://github.com/stevearc/conform.nvim" },
 	{ src = "https://github.com/sindrets/diffview.nvim" },
 	{ src = "https://github.com/NeogitOrg/neogit" },
+	{ src = "https://github.com/igorlfs/nvim-dap-view" },
+	{ src = "https://github.com/mfussenegger/nvim-dap" },
+	{ src = "https://github.com/mfussenegger/nvim-dap-python" },
+	{ src = "https://github.com/leoluz/nvim-dap-go" },
 })
 
 require("config.rose-pine")
@@ -45,12 +52,14 @@ vim.ui.select = MiniPick.ui_select
 require("fidget").setup()
 require("oil").setup({ view_options = { show_hidden = true } })
 require("neogit").setup()
+require("dap-python").setup("python3")
+require("dap-go").setup()
 
 keymaps.apply_pickers()
 keymaps.apply_tools()
 
 require("config.treesitter")
-require("config.lsp")
+require("config.lsp-tools")
 require("config.blink")
 require("config.conform")
 
