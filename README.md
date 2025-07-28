@@ -4,25 +4,19 @@ Personal dotfiles, managed with GNU stow
 - OS: macOS
 - WM: Aerospace
 - Editor: neovim
-- Terminal: kitty with tmux
+- Terminal: Wezterm
 - Font: Iosevka Extended
 - Theme: Rose pine
 
 Notes:
 - I use every app maximized, almost never tile
-- I have every macOS trackpad navigation gesture disabled
-- I use the tmux-sessionizer script, so each "project" has it's own session in tmux
+- I have every macOS trackpad navigation gesture disabled as they conflict with aerospace
+- Neovim runs on the nightly branch, which now includes a OOTB package manager
 
-<img width="1470" alt="image" src="https://github.com/user-attachments/assets/fce032c3-296c-49f9-813c-8ae81d79e32b">
+## Screenshots
 
-<img width="1022" alt="Screenshot 2024-07-30 at 00 55 15" src="https://github.com/user-attachments/assets/154d6e8e-b065-49f2-8b23-eafc5693ec1d">
+Random rust file opened in neovim
+<img width="1920" height="1080" alt="Screenshot 2025-07-29 at 01 26 53" src="https://github.com/user-attachments/assets/17afe636-6876-499f-ab0b-e16cc8171d53" />
 
-## wishlist
-
-- nvim
-  - [ ] nvim spider to move through camel case with leader{w, e, b}
-  - [ ] try out incline.nvim
-  - [x] dap
-    - [ ] Minimize dapui clutter, only show needed panes in bottom bar
-  - [ ] learn f and t motions
-  - [x] plugin support finally after all these years
+Wezterm quick workspace switcher with cmd-s
+<img width="1920" height="1080" alt="Screenshot 2025-07-29 at 01 27 38" src="https://github.com/user-attachments/assets/6c9dcf0a-495b-4ace-bdbb-ab688af7ff2e" />
