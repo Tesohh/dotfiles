@@ -1,8 +1,5 @@
 require("opts")
-local keymaps = require("keymaps")
-keymaps.apply_horizontal_movement()
-keymaps.apply_navigation()
-keymaps.apply_windows()
+require("keymaps")
 
 vim.pack.add({
 	{ src = "https://github.com/rose-pine/neovim", name = "rose-pine" },
@@ -52,18 +49,12 @@ vim.ui.select = MiniPick.ui_select
 require("fidget").setup()
 require("oil").setup({ view_options = { show_hidden = true } })
 require("neogit").setup()
-require("dap-python").setup("python3")
-require("dap-go").setup()
-
-keymaps.apply_pickers()
-keymaps.apply_tools()
 
 require("config.treesitter")
 require("config.lsp-tools")
 require("config.blink")
 require("config.conform")
-
-keymaps.apply_lsp()
+require("config.dap")
 
 require("niceties.gitc")
 require("niceties.highlightyank")
