@@ -13,10 +13,26 @@ vim.keymap.set({ "n", "x" }, "<C-k>", "<C-w>k")
 vim.keymap.set({ "n", "x" }, "<C-l>", "<C-w>l")
 
 -- Pickers
-vim.keymap.set({ "n", "x" }, "<leader>f", "<cmd>Pick files<CR>")
-vim.keymap.set({ "n", "x" }, "<leader>sw", "<cmd>Pick grep_live<cr>")
-vim.keymap.set({ "n", "x" }, "<leader>ss", "<cmd>Pick lsp scope=document_symbol")
-vim.keymap.set({ "n", "x" }, "<leader>S", "<cmd>Pick lsp scope=workspace_symbol")
+vim.keymap.set({ "n", "x" }, "<leader>f", function()
+	require("telescope.builtin").find_files({
+		hidden = true,
+		file_ignore_patterns = {
+			"target",
+			"node_modules",
+			".git",
+			"*.png",
+			"*.wav",
+			"*.mp3",
+			"*.o",
+			"*.ttf",
+			"*.class",
+		},
+	})
+end)
+vim.keymap.set({ "n", "x" }, "<leader>sw", "<cmd>Telescope live_grep<cr>")
+vim.keymap.set({ "n", "x" }, "<leader>ss", "<cmd>Telescope lsp_document_symbols theme=ivy<cr>")
+vim.keymap.set({ "n", "x" }, "<leader>S", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>")
+vim.keymap.set({ "n", "x" }, "<leader>gc", "<cmd>Telescope git_commits<cr>")
 
 -- LSP
 -- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
