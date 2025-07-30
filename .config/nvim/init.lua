@@ -10,7 +10,6 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
 	{ src = "https://github.com/stevearc/dressing.nvim" },
 	{ src = "https://github.com/echasnovski/mini.icons" },
-	{ src = "https://github.com/echasnovski/mini.extra" },
 	{ src = "https://github.com/echasnovski/mini.diff" },
 	{ src = "https://github.com/echasnovski/mini-git" },
 	{ src = "https://github.com/j-hui/fidget.nvim" },
@@ -45,7 +44,6 @@ require("ibl").setup({ scope = { enabled = false } })
 require("mini.icons").setup()
 MiniIcons.tweak_lsp_kind()
 MiniIcons.mock_nvim_web_devicons()
-require("mini.extra").setup()
 require("mini.diff").setup()
 require("mini.git").setup()
 require("fidget").setup()
