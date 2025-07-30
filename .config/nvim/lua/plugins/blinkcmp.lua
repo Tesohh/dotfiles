@@ -2,6 +2,7 @@ return {
 	"saghen/blink.cmp",
 	version = "1.*",
 	dependencies = { "rafamadriz/friendly-snippets" },
+	event = "InsertEnter",
 	opts = {
 		enabled = function()
 			return not vim.list_contains({ "DressingInput" }, vim.bo.filetype)

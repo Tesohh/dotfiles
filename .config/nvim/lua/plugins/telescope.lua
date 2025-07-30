@@ -3,9 +3,6 @@ return {
 		"nvim-telescope/telescope.nvim",
 		dependencies = { "nvim-lua/plenary.nvim", "echasnovski/mini.icons" },
 		opts = {},
-		config = function(_, opts)
-			require("telescope").setup(opts)
-		end,
 		cmd = "Telescope",
 		keys = {
 			{

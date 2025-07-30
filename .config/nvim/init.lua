@@ -4,3 +4,4 @@ require("scripts.lazy")
 
 require("scripts.gitc")
 require("scripts.highlightyank")
+require("scripts.transparentline")

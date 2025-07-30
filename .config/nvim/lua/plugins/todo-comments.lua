@@ -14,4 +14,5 @@ return {
 			TEMP = { icon = " ", color = "error", alt = { "DELETEME" } },
 		},
 	},
+	event = "BufRead",
 }

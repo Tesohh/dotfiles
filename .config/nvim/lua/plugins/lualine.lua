@@ -35,7 +35,7 @@ local theme = {
 
 return {
 	"nvim-lualine/lualine.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+	dependencies = { "echasnovski/mini.icons" },
 	opts = {
 		options = {
 			icons_enabled = true,
@@ -77,9 +77,4 @@ return {
 		inactive_winbar = {},
 		extensions = {},
 	},
-	config = function(_, opts)
-		require("lualine").setup(opts)
-		vim.cmd([[hi StatusLine guibg=NONE ]])
-		vim.cmd([[hi StatusLineNC guibg=NONE ]])
-	end,
 }

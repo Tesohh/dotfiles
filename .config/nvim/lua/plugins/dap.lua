@@ -1,13 +1,34 @@
 return {
 	"mfussenegger/nvim-dap",
 	dependencies = {
-		{ "leoluz/nvim-dap-go" },
-		{ "mfussenegger/nvim-dap-python" },
+		{ "leoluz/nvim-dap-go", ft = "go" },
+		{ "mfussenegger/nvim-dap-python", ft = "python" },
 		{ "igorlfs/nvim-dap-view", opts = {} },
 		"williamboman/mason.nvim",
 	},
+
+    -- stylua: ignore
+    keys = {
+        { "<leader>B", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint Condition" },
+        { "<leader>b", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
+        { "<leader>dc", function() require("dap").continue() end, desc = "Run/Continue" },
+        { "<leader>da", function() require("dap").continue({ before = get_args }) end, desc = "Run with Args" },
+        { "<leader>dtc", function() require("dap").run_to_cursor() end, desc = "Run to Cursor" },
+        { "<leader>dg", function() require("dap").goto_() end, desc = "Go to Line (No Execute)" },
+        { "<leader>di", function() require("dap").step_into() end, desc = "Step Into" },
+        { "<leader>dj", function() require("dap").down() end, desc = "Down" },
+        { "<leader>dk", function() require("dap").up() end, desc = "Up" },
+        { "<leader>dl", function() require("dap").run_last() end, desc = "Run Last" },
+        { "<leader>do", function() require("dap").step_out() end, desc = "Step Out" },
+        { "<leader>dO", function() require("dap").step_over() end, desc = "Step Over" },
+        { "<leader>dP", function() require("dap").pause() end, desc = "Pause" },
+        { "<leader>dr", function() require("dap").repl.toggle() end, desc = "Toggle REPL" },
+        { "<leader>ds", function() require("dap").session() end, desc = "Session" },
+        { "<leader>dt", function() require("dap").terminate() end, desc = "Terminate" },
+        { "<leader>du", "<cmd>DapViewToggle<cr>", desc = "DapViewToggle" },
+    },
+
 	config = function()
-		local dap = require("dap")
 		require("dap-python").setup("python3")
 		require("dap-go").setup()
 
@@ -16,17 +37,6 @@ return {
 		vim.fn.sign_define("DapLogPoint", { text = "💬", texthl = "", linehl = "", numhl = "" })
 		vim.fn.sign_define("DapStopped", { text = "➡️", texthl = "", linehl = "", numhl = "" })
 		vim.fn.sign_define("DapBreakpointRejected", { text = "⚪️", texthl = "", linehl = "", numhl = "" })
-
-		vim.keymap.set({ "n", "x" }, "<leader>b", dap.toggle_breakpoint)
-		vim.keymap.set({ "n", "x" }, "<leader>dr", dap.restart)
-		vim.keymap.set({ "n", "x" }, "<leader>ds", dap.terminate)
-		vim.keymap.set({ "n", "x" }, "<leader>dtc", dap.run_to_cursor)
-		vim.keymap.set({ "n", "x" }, "<leader>dc", dap.continue)
-		vim.keymap.set({ "n", "x" }, "<leader>di", dap.step_into)
-		vim.keymap.set({ "n", "x" }, "<leader>do", dap.step_over)
-		vim.keymap.set({ "n", "x" }, "<leader>dO", dap.step_out)
-		vim.keymap.set({ "n", "x" }, "<leader>db", dap.step_back)
-		vim.keymap.set({ "n", "x" }, "<leader>du", "<cmd>DapViewToggle<cr>")
 
 		require("dap").adapters.codelldb = {
 			type = "server",

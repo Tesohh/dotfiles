@@ -4,5 +4,5 @@ return {
 	opts = {
 		scope = { enabled = false },
 	},
-	event = "VeryLazy",
+	event = "BufRead",
 }
