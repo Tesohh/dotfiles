@@ -3,7 +3,7 @@ return {
 	opts = {
 		notification = {
 			window = {
-				winblend = 0,
+				-- winblend = 0,
 				relative = "editor",
 			},
 		},

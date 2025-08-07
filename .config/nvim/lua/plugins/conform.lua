@@ -4,8 +4,9 @@ return {
 	opts = {
 		formatters_by_ft = {
 			lua = { "stylua" },
-			python = { "isort", "black" },
+			python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
 			javascript = { "prettierd", "prettier", stop_after_first = true },
+			svelte = { "prettierd", "prettier", stop_after_first = true },
 			go = { "gofmt", "goimports" },
 			rust = { "rustfmt", lsp_format = "fallback" },
 		},

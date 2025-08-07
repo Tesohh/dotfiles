@@ -18,8 +18,11 @@ config.tab_bar_at_bottom = true
 
 config.font = wezterm.font({
 	family = "Iosevka Extended",
+	-- family = "Fira Mono",
+	-- family = "Source Code Pro",
 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
 })
+
 config.front_end = "WebGpu"
 config.freetype_load_target = "Normal"
 config.freetype_load_flags = "NO_BITMAP|MONOCHROME|NO_AUTOHINT"
@@ -70,6 +73,9 @@ workspace_switcher.get_choices = function(_)
 		table.insert(entries, path_to_switcher_entry(path))
 	end
 	for _, path in pairs(get_directories("/Users/tesohh/dotfiles")) do
+		table.insert(entries, path_to_switcher_entry(path))
+	end
+	for _, path in pairs(get_directories("/Users/tesohh/dotfiles/.config")) do
 		table.insert(entries, path_to_switcher_entry(path))
 	end
 

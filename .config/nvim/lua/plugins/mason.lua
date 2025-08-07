@@ -18,6 +18,7 @@ local tool_list = {
 	"stylua",
 	"isort",
 	"black",
+	"ruff",
 	"prettierd",
 	"codelldb",
 }
