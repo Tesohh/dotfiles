@@ -11,7 +11,6 @@ Personal dotfiles, managed with GNU stow
 Notes:
 - I use every app maximized, almost never tile
 - I have every macOS trackpad navigation gesture disabled as they conflict with aerospace
-- Neovim runs on the nightly branch, which now includes a OOTB package manager
 
 ## Screenshots
 
