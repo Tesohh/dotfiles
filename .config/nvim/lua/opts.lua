@@ -9,6 +9,10 @@ vim.opt.smartindent = true
 vim.opt.winborder = "rounded"
 vim.wo.wrap = false
 
+-- -- folding
+-- vim.opt.foldmethod = "expr"
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+
 -- search
 vim.opt.ignorecase = true
 vim.opt.smartcase = true

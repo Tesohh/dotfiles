@@ -86,23 +86,26 @@ local function base_name(str)
 	return string.gsub(str, "(.*[/\\])(.*)", "%2")
 end
 
-wezterm.on("smart_workspace_switcher.workspace_switcher.chosen", function(window, workspace)
+local update_statusline_mux = function(window, workspace)
 	local gui_win = window:gui_window()
 	local base_path = base_name(workspace)
 	gui_win:set_left_status(wezterm.format({
 		{ Foreground = { Color = "gray" } },
 		{ Text = base_path .. "  " },
 	}))
-end)
+end
 
-wezterm.on("smart_workspace_switcher.workspace_switcher.created", function(window, workspace)
-	local gui_win = window:gui_window()
-	local base_path = base_name(workspace)
-	gui_win:set_left_status(wezterm.format({
+local update_statusline_gui = function(window, pane, previous_workspace)
+	local base_path = base_name(window:active_workspace())
+	window:set_left_status(wezterm.format({
 		{ Foreground = { Color = "gray" } },
 		{ Text = base_path .. "  " },
 	}))
-end)
+end
+
+wezterm.on("smart_workspace_switcher.workspace_switcher.chosen", update_statusline_mux)
+wezterm.on("smart_workspace_switcher.workspace_switcher.created", update_statusline_mux)
+wezterm.on("smart_workspace_switcher.workspace_switcher.switched_to_prev", update_statusline_gui)
 
 config.default_workspace = "~"
 
@@ -111,6 +114,7 @@ local act = wezterm.action
 config.keys = {
 	{ key = "s", mods = "LEADER", action = workspace_switcher.switch_workspace() },
 	{ key = "s", mods = "CMD", action = workspace_switcher.switch_workspace() },
+	{ key = "d", mods = "CMD", action = workspace_switcher.switch_to_prev_workspace() },
 	{ key = "c", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain") },
 	{ mods = "CMD", key = "Backspace", action = act.SendKey({ mods = "CTRL", key = "u" }) },
 	{ key = "p", mods = "CMD", action = act.ActivateCommandPalette },
