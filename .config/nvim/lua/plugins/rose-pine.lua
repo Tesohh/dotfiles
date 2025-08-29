@@ -5,6 +5,7 @@ return {
 		disable_italics = true,
 		highlight_groups = {
 			Comment = { italic = true },
+			Folded = { fg = "muted" },
 		},
 	},
 	config = function(_, opts)

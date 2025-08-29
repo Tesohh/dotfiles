@@ -11,9 +11,9 @@ return {
 					require("telescope.builtin").find_files({
 						hidden = true,
 						file_ignore_patterns = {
-							"target",
-							"node_modules",
-							".git",
+							"target/",
+							"node_modules/",
+							".git/",
 							"*.png",
 							"*.wav",
 							"*.mp3",
