@@ -30,6 +30,16 @@ return {
 		-- elsewhere in your config, without redefining it, via `opts_extend`
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer" },
+			per_filetype = {
+				org = { "orgmode" },
+			},
+			providers = {
+				orgmode = {
+					name = "Orgmode",
+					module = "orgmode.org.autocompletion.blink",
+					fallbacks = { "buffer" },
+				},
+			},
 		},
 
 		completion = {
