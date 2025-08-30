@@ -30,7 +30,7 @@ vim.opt.scrolloff = 8
 -- UI
 vim.opt.showmode = false
 vim.opt.signcolumn = "yes:1"
-vim.opt.cmdheight = 1
+vim.opt.cmdheight = 0
 vim.opt.pumheight = 10
 vim.opt.cursorline = true
 vim.opt.number = true

@@ -32,12 +32,19 @@ return {
 			default = { "lsp", "path", "snippets", "buffer" },
 			per_filetype = {
 				org = { "orgmode" },
+				lua = { "lazydev", "lsp", "path", "snippets", "buffer" },
 			},
 			providers = {
 				orgmode = {
 					name = "Orgmode",
 					module = "orgmode.org.autocompletion.blink",
 					fallbacks = { "buffer" },
+				},
+				lazydev = {
+					name = "LazyDev",
+					module = "lazydev.integrations.blink",
+					-- make lazydev completions top priority (see `:h blink.cmp`)
+					score_offset = 100,
 				},
 			},
 		},
