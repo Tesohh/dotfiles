@@ -33,6 +33,6 @@ vim.opt.signcolumn = "yes:1"
 vim.opt.cmdheight = 0
 vim.opt.pumheight = 10
 vim.opt.cursorline = true
-vim.opt.number = true
+vim.opt.number = false
 vim.opt.clipboard = "unnamedplus"
 vim.opt.fillchars = { eob = " ", vert = " " }

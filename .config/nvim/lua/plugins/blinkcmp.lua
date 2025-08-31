@@ -5,7 +5,8 @@ return {
 	event = "InsertEnter",
 	opts = {
 		enabled = function()
-			return not vim.list_contains({ "DressingInput" }, vim.bo.filetype)
+			--
+			return not vim.list_contains({ "DressingInput", "org-roam-select" }, vim.bo.filetype)
 				and vim.bo.buftype ~= "prompt"
 				and vim.b.completion ~= false
 		end,

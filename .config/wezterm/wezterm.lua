@@ -14,7 +14,9 @@ config.window_padding = {
 	bottom = 0,
 }
 config.use_fancy_tab_bar = true
-config.tab_bar_at_bottom = true
+config.tab_bar_at_bottom = false
+config.native_macos_fullscreen_mode = false
+config.macos_fullscreen_extend_behind_notch = true
 
 config.font = wezterm.font({
 	family = "Iosevka Extended",
@@ -76,6 +78,9 @@ workspace_switcher.get_choices = function(_)
 		table.insert(entries, path_to_switcher_entry(path))
 	end
 	for _, path in pairs(get_directories("/Users/tesohh/dotfiles/.config")) do
+		table.insert(entries, path_to_switcher_entry(path))
+	end
+	for _, path in pairs(get_directories("/Users/tesohh/Nextcloud/")) do
 		table.insert(entries, path_to_switcher_entry(path))
 	end
 
