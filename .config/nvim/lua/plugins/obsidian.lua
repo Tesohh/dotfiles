@@ -1,5 +1,6 @@
 return {
 	"obsidian-nvim/obsidian.nvim",
+	enabled = false,
 	-- version = "*",
 	dependencies = {
 		"saghen/blink.cmp",
