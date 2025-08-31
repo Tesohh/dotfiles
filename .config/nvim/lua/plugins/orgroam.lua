@@ -9,7 +9,7 @@ return {
 	},
 	config = function()
 		require("org-roam").setup({
-			directory = "~/Nextcloud/org/",
+			directory = "~/Nextcloud/org/roam",
 		})
 	end,
 }

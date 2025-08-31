@@ -17,6 +17,7 @@ config.use_fancy_tab_bar = true
 config.tab_bar_at_bottom = false
 config.native_macos_fullscreen_mode = false
 config.macos_fullscreen_extend_behind_notch = true
+config.term = "wezterm"
 
 config.font = wezterm.font({
 	family = "Iosevka Extended",
