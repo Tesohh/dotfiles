@@ -37,8 +37,10 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
-;; (setq doom-theme 'doom-rose-pine)
+;; (setq doom-theme 'everforest-hard-dark)
+;; (setq doom-theme 'doom-gruvbox)
+;; (setq doom-theme 'doom-one)
+(setq doom-theme 'doom-rose-pine)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -46,7 +48,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/Nextcloud/org")
+(setq org-directory "~/org")
 (setq org-agenda-files (list org-directory))
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -83,8 +85,29 @@
   (setq org-startup-folded 'overview)
   (setq org-preview-latex-default-process 'dvisvgm)
   (setq org-log-into-drawer t)
-  )  ;; just a visual scale
+  )
 
+(after! corfu
+
+  (add-hook 'prog-mode-hook (lambda () (setq-local corfu-preselect 'first)))
+  (add-hook 'text-mode-hook (lambda () (setq-local corfu-preselect 'first)))
+  (setq corfu-auto t
+
+        corfu-auto-delay 0
+        ;; corfu-preselect 'first
+        corfu-preview-current nil
+        +corfu-want-tab-prefer-expand-snippets t)
+  )
+
+;; (after! corfu
+;;   (setq corfu-auto-prefix 2)
+;;   (setq corfu-auto-delay 0))
+;; (define-key corfu-map (kbd "RET") #'corfu-insert)
+;; ;; Keep Corfu open on backspace
+;; (setq corfu-quit-at-boundary nil
+;;       corfu-quit-no-match nil
+;;       )
+;; (define-key corfu-map (kbd "DEL") #'delete-backward-char))
 
 (setq olivetti-body-width 100)
 (add-hook 'text-mode-hook (lambda ()
@@ -101,6 +124,8 @@
       :o "H" #'evil-first-non-blank
       :o "L" #'evil-end-of-line
       )
+(setq scroll-margin 8)
 
 (setq mac-command-modifier 'meta)
 (add-to-list 'default-frame-alist '(undecorated . t))
+(menu-bar-mode -1)
