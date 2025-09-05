@@ -1,5 +1,6 @@
 return {
 	"nvim-orgmode/orgmode",
+	enabled = false,
 	event = "VeryLazy",
 	dependencies = {
 		"nvim-telescope/telescope.nvim",
