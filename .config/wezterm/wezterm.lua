@@ -6,7 +6,7 @@ local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").main
 config.colors = theme.colors()
 config.window_frame = theme.window_frame()
 
-config.window_decorations = "RESIZE"
+config.window_decorations = "RESIZE|MACOS_FORCE_SQUARE_CORNERS"
 config.window_padding = {
 	left = 0,
 	right = 0,

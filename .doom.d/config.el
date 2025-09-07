@@ -10,7 +10,9 @@
 (setq-default line-spacing 2)
 
 ;; Theme
-(setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'doom-rosepine)
+;; (setq doom-theme 'doom-gruvbox)
+;; (setq doom-theme 'catppuccin)
 
 ;; .vimrc
 (map! :n "H" #'evil-first-non-blank
@@ -23,14 +25,54 @@
 (setq scroll-margin 8)
 (setq display-line-numbers-type nil)
 
+;;; add to $DOOMDIR/config.el
+(after! treesit
+  (setq treesit-font-lock-level 4))  ; default is 3
+
 ;; Org
+(defun my/org-capture-to-roam-daily ()
+  (interactive)
+  (org-roam-dailies-capture-today))
+
 (setq org-directory "~/org")
-(setq org-roam-directory "~/org/roam")
-(setq org-agenda-files (list org-directory))
+(setq org-agenda-files (list org-directory "~/org/roam"))
 (after! org
+  (setq org-capture-templates
+        '(
+          ("t" "TODO" entry
+           (file "inbox.org")
+           "* TODO %?\n %U")
+          ("j" "journal entry in roam daily" plain
+           (function my/org-capture-to-roam-daily)
+           "%?")
+          )
+        )
   (setq org-startup-folded 'overview)
   (setq org-preview-latex-default-process 'dvisvgm)
   (setq org-log-into-drawer t)
+  (map! :v "SPC e" #'org-emphasize)
+  )
+
+(add-hook 'doom-load-theme-hook
+          (lambda ()
+            (after! org
+              (add-to-list 'org-emphasis-alist
+                           `("*" (:inherit 'bold :foreground ,(doom-color 'red))))
+              (add-to-list 'org-emphasis-alist
+                           `("/" (:inherit 'italic :foreground ,(doom-color 'violet))))
+              )))
+
+;; (after! org-modern
+;;   (setq org-modern-star 'replace)
+;;   (setq org-modern-replace-stars "◉○◈◇")
+;;   )
+
+;; Org roam
+(setq org-roam-directory "~/org/roam")
+(after! org-roam
+  (setq org-roam-dailies-capture-templates
+        '(("d" "default" entry "* %?\n\n%T"
+           :if-new (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n"))))
   )
 
 ;; Corfu
@@ -58,3 +100,8 @@
 
 ;; Disable decorations
 (add-to-list 'default-frame-alist '(undecorated . t))
+
+(defun show-face-at-point ()
+  "Show the face at point."
+  (interactive)
+  (message "Face: %s" (get-char-property (point) 'face)))

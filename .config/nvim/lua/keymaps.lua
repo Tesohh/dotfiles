@@ -19,3 +19,5 @@ vim.keymap.set("n", "<leader>dd", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>ge", "<cmd>GoIfErr<cr>", { desc = "Go if err" })
 vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+
+-- vim.keymap.set({ "n", "x" }, "<tab>", "za")

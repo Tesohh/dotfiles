@@ -8,6 +8,15 @@ return {
 			auto_install = true,
 			highlight = { enable = true },
 			indent = { enable = true, disable = { "html" } },
+			textobjects = {
+				select = {
+					enable = true,
+					keymaps = {
+						["aw"] = nil, -- disable Treesitter override
+						["iw"] = nil, -- disable Treesitter override
+					},
+				},
+			},
 			-- autotag = { enable = true },
 		})
 	end,
