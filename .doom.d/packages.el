@@ -52,3 +52,6 @@
 (package! vulpea)
 (package! s)
 (package! catppuccin-theme)
+(package! websocket)
+(package! org-roam-ui)
+(package! org-roam-timestamps)

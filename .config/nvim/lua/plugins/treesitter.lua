@@ -9,6 +9,7 @@ return {
 			highlight = { enable = true },
 			indent = { enable = true, disable = { "html" } },
 			textobjects = {
+
 				select = {
 					enable = true,
 					keymaps = {

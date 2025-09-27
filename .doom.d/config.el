@@ -33,9 +33,28 @@
 (defun my/org-capture-to-roam-daily ()
   (interactive)
   (org-roam-dailies-capture-today))
+(use-package! websocket
+  :after org-roam)
+
+(use-package! org-roam-ui
+  :after org-roam ;; or :after org
+  ;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
+  ;;         a hookable mode anymore, you're advised to pick something yourself
+  ;;         if you don't care about startup time, use
+  ;;  :hook (after-init . org-roam-ui-mode)
+  :config
+  (setq org-roam-ui-sync-theme t
+        org-roam-ui-follow t
+        org-roam-ui-update-on-save t
+        org-roam-ui-open-on-start nil)
+  ;; (org-roam-ui-mode)
+  )
+(use-package! org-roam-timestamps
+  :after org-roam
+  :config (org-roam-timestamps-mode))
 
 (setq org-directory "~/org")
-(setq org-agenda-files (list org-directory "~/org/roam"))
+(setq org-agenda-files (list org-directory "~/org/roam" "~/org/roam/daily"))
 (after! org
   (setq org-capture-templates
         '(
@@ -51,7 +70,14 @@
   (setq org-preview-latex-default-process 'dvisvgm)
   (setq org-log-into-drawer t)
   (map! :v "SPC e" #'org-emphasize)
+  (map! :v "SPC e" #'org-emphasize)
   )
+
+(map! :after org
+      :map org-mode-map
+      :localleader
+      "z" #'org-toggle-narrow-to-subtree)
+
 
 (add-hook 'doom-load-theme-hook
           (lambda ()

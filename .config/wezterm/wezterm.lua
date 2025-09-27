@@ -5,8 +5,7 @@ local config = wezterm.config_builder()
 local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").main
 config.colors = theme.colors()
 config.window_frame = theme.window_frame()
-
-config.window_decorations = "RESIZE|MACOS_FORCE_SQUARE_CORNERS"
+config.window_decorations = "RESIZE"
 config.window_padding = {
 	left = 0,
 	right = 0,
@@ -18,6 +17,10 @@ config.tab_bar_at_bottom = false
 config.native_macos_fullscreen_mode = false
 config.macos_fullscreen_extend_behind_notch = true
 config.term = "wezterm"
+
+config.allow_win32_input_mode = false
+-- config.enable_kitty_keyboard = true
+config.enable_csi_u_key_encoding = true
 
 config.font = wezterm.font({
 	family = "Iosevka Extended",
