@@ -115,6 +115,9 @@ end
 wezterm.on("smart_workspace_switcher.workspace_switcher.chosen", update_statusline_mux)
 wezterm.on("smart_workspace_switcher.workspace_switcher.created", update_statusline_mux)
 wezterm.on("smart_workspace_switcher.workspace_switcher.switched_to_prev", update_statusline_gui)
+wezterm.on("smart_workspace_switcher.workspace_switcher.start", update_statusline_gui)
+wezterm.on("smart_workspace_switcher.workspace_switcher.canceled", update_statusline_gui)
+wezterm.on("smart_workspace_switcher.workspace_switcher.selected", update_statusline_gui)
 
 config.default_workspace = "~"
 

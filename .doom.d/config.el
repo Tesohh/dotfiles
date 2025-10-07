@@ -47,6 +47,20 @@
         org-roam-ui-follow t
         org-roam-ui-update-on-save t
         org-roam-ui-open-on-start nil)
+
+  (setq org-roam-ui-custom-theme
+        '((bg . "#191724")
+          (bg-alt . "#1f1d2e")
+          (fg . "#e0def4")
+          (fg-alt . "#908caa")
+          (red . "#eb6f92")
+          (orange . "#ebbcba")
+          (yellow ."#f6c177")
+          (green . "#9ccfd8")
+          (cyan . "#31748f")
+          (blue . "#286983")
+          (violet . "#c4a7e7")
+          (magenta . "#ebbcba")))
   ;; (org-roam-ui-mode)
   )
 (use-package! org-roam-timestamps
@@ -95,6 +109,7 @@
 
 ;; Org roam
 (setq org-roam-directory "~/org/roam")
+(setq org-roam-db-location "~/org/roam/.roam.db")
 (after! org-roam
   (setq org-roam-dailies-capture-templates
         '(("d" "default" entry "* %?\n\n%T"
