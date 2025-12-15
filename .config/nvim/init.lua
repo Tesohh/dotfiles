@@ -1,10 +1,10 @@
 require("opts")
 require("keymaps")
 require("scripts.lazy")
-
 require("scripts.gitc")
 require("scripts.backupcmd")
 require("scripts.highlightyank")
 require("scripts.transparentline")
 require("scripts.fold2")
 require("scripts.snackslspprogress")
+require("scripts.capitalW")

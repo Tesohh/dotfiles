@@ -5,6 +5,7 @@ local lsp_list = {
 	"gopls",
 	"html",
 	"lua_ls",
+	"jdtls",
 	"pyright",
 	"svelte",
 	"rust_analyzer",

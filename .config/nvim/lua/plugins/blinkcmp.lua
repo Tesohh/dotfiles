@@ -32,15 +32,15 @@ return {
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer" },
 			per_filetype = {
-				org = { "orgmode" },
+				-- org = { "orgmode" },
 				lua = { "lazydev", "lsp", "path", "snippets", "buffer" },
 			},
 			providers = {
-				orgmode = {
-					name = "Orgmode",
-					module = "orgmode.org.autocompletion.blink",
-					fallbacks = { "buffer" },
-				},
+				-- orgmode = {
+				-- 	name = "Orgmode",
+				-- 	module = "orgmode.org.autocompletion.blink",
+				-- 	fallbacks = { "buffer" },
+				-- },
 				lazydev = {
 					name = "LazyDev",
 					module = "lazydev.integrations.blink",
