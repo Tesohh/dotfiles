@@ -1,7 +1,7 @@
 source "$HOME/zsh-scripts/supercharge.zsh"
-source "/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-source "/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-source "$HOME/.zsh-lazy-nvm.sh"
+source "$HOME/zsh-scripts/zsh-autosuggestions.zsh"
+source "$HOME/zsh-scripts/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "$HOME/zsh-scripts/.zsh-lazy-nvm.sh"
 
 # .zshenv
 # export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters
