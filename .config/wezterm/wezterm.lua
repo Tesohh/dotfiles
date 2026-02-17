@@ -5,13 +5,73 @@ local config = wezterm.config_builder()
 local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").main
 config.colors = theme.colors()
 config.window_frame = theme.window_frame()
-config.window_decorations = "RESIZE"
+
+local session_lookup_dirs = {
+	as_is = {},
+	recursive = {},
+}
+
+if wezterm.target_triple == "aarch64-apple-darwin" then
+	-- MACOS CONFIG
+	config.font = wezterm.font({
+		family = "Iosevka Extended",
+		harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
+	})
+	config.front_end = "WebGpu"
+	config.freetype_load_target = "Normal"
+	config.freetype_load_flags = "NO_BITMAP|MONOCHROME|NO_AUTOHINT"
+	config.window_decorations = "RESIZE"
+
+	config.font_size = 16
+	config.cell_width = 0.9
+	config.line_height = 1.1
+
+	session_lookup_dirs = {
+		as_is = { "/Users/tesohh/dev", "/Users/tesohh/docs", "/Users/tesohh/dotfiles" },
+		recursive = {
+			"/Users/tesohh/dev",
+			"/Users/tesohh/docs",
+			"/Users/tesohh/dev/scratchpad",
+			"/Users/tesohh/dotfiles",
+			"/Users/tesohh/dotfiles/.config",
+		},
+	}
+elseif wezterm.target_triple == "x86_64-unknown-linux-gnu" then
+	-- LINUX CONFIG
+	local session_type = os.getenv("XDG_SESSION_TYPE")
+	config.enable_wayland = (session_type == "wayland")
+
+	config.font = wezterm.font({
+		family = "Iosevka Extended",
+		weight = 500,
+		harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
+	})
+
+	config.font_size = 18
+	config.cell_width = 0.9
+	config.line_height = 1.1
+
+	config.window_decorations = "NONE"
+
+	session_lookup_dirs = {
+		as_is = { "/home/tesohh/dev", "/home/tesohh/docs", "/home/tesohh/dotfiles" },
+		recursive = {
+			"/home/tesohh/dev",
+			"/home/tesohh/docs",
+			"/home/tesohh/dev/scratchpad",
+			"/home/tesohh/dotfiles",
+			"/home/tesohh/dotfiles/.config",
+		},
+	}
+end
+
 config.window_padding = {
 	left = 0,
 	right = 0,
 	top = 0,
 	bottom = 0,
 }
+
 config.use_fancy_tab_bar = true
 config.tab_bar_at_bottom = false
 config.native_macos_fullscreen_mode = false
@@ -21,21 +81,6 @@ config.term = "wezterm"
 config.allow_win32_input_mode = false
 -- config.enable_kitty_keyboard = true
 config.enable_csi_u_key_encoding = true
-
-config.font = wezterm.font({
-	family = "Iosevka Extended",
-	-- family = "Dank Mono",
-	-- family = "Fira Mono",
-	-- family = "Source Code Pro",
-	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
-})
-
-config.front_end = "WebGpu"
-config.freetype_load_target = "Normal"
-config.freetype_load_flags = "NO_BITMAP|MONOCHROME|NO_AUTOHINT"
-config.font_size = 16
-config.cell_width = 0.9
-config.line_height = 1.1
 
 config.leader = { key = "s", mods = "CTRL", timeout_milliseconds = 2000 }
 
@@ -70,27 +115,15 @@ end
 
 workspace_switcher.get_choices = function(_)
 	local entries = workspace_switcher.choices.get_workspace_elements({})
-	table.insert(entries, path_to_switcher_entry("/Users/tesohh/dev"))
-	table.insert(entries, path_to_switcher_entry("/Users/tesohh/docs"))
-	table.insert(entries, path_to_switcher_entry("/Users/tesohh/dotfiles"))
 
-	for _, path in pairs(get_directories("/Users/tesohh/dev")) do
-		table.insert(entries, path_to_switcher_entry(path))
+	for _, dir in pairs(session_lookup_dirs.as_is) do
+		table.insert(entries, path_to_switcher_entry(dir))
 	end
-	for _, path in pairs(get_directories("/Users/tesohh/docs")) do
-		table.insert(entries, path_to_switcher_entry(path))
-	end
-	for _, path in pairs(get_directories("/Users/tesohh/Developer/scratchpad")) do
-		table.insert(entries, path_to_switcher_entry(path))
-	end
-	for _, path in pairs(get_directories("/Users/tesohh/dotfiles")) do
-		table.insert(entries, path_to_switcher_entry(path))
-	end
-	for _, path in pairs(get_directories("/Users/tesohh/dotfiles/.config")) do
-		table.insert(entries, path_to_switcher_entry(path))
-	end
-	for _, path in pairs(get_directories("/Users/tesohh/Nextcloud/")) do
-		table.insert(entries, path_to_switcher_entry(path))
+
+	for _, dir in pairs(session_lookup_dirs.recursive) do
+		for _, path in pairs(get_directories(dir)) do
+			table.insert(entries, path_to_switcher_entry(path))
+		end
 	end
 
 	return entries
