@@ -24,6 +24,7 @@ config.enable_csi_u_key_encoding = true
 
 config.font = wezterm.font({
 	family = "Iosevka Extended",
+	-- family = "Dank Mono",
 	-- family = "Fira Mono",
 	-- family = "Source Code Pro",
 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
@@ -69,10 +70,14 @@ end
 
 workspace_switcher.get_choices = function(_)
 	local entries = workspace_switcher.choices.get_workspace_elements({})
-	table.insert(entries, path_to_switcher_entry("/Users/tesohh/Developer"))
+	table.insert(entries, path_to_switcher_entry("/Users/tesohh/dev"))
+	table.insert(entries, path_to_switcher_entry("/Users/tesohh/docs"))
 	table.insert(entries, path_to_switcher_entry("/Users/tesohh/dotfiles"))
 
-	for _, path in pairs(get_directories("/Users/tesohh/Developer")) do
+	for _, path in pairs(get_directories("/Users/tesohh/dev")) do
+		table.insert(entries, path_to_switcher_entry(path))
+	end
+	for _, path in pairs(get_directories("/Users/tesohh/docs")) do
 		table.insert(entries, path_to_switcher_entry(path))
 	end
 	for _, path in pairs(get_directories("/Users/tesohh/Developer/scratchpad")) do
@@ -129,10 +134,14 @@ config.keys = {
 	{ key = "d", mods = "CMD", action = workspace_switcher.switch_to_prev_workspace() },
 	{ key = "c", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain") },
 	{ mods = "CMD", key = "Backspace", action = act.SendKey({ mods = "CTRL", key = "u" }) },
+	{ mods = "CTRL", key = "Backspace", action = act.SendKey({ mods = "CTRL", key = "u" }) },
 	{ key = "p", mods = "CMD", action = act.ActivateCommandPalette },
 
-	{ key = "LeftArrow", mods = "OPT", action = act({ SendString = "\x1bb" }) },
-	{ key = "RightArrow", mods = "OPT", action = act({ SendString = "\x1bf" }) },
+	{ key = "LeftArrow", mods = "OPT", action = act.SendKey({ mods = "ALT", key = "b" }) },
+	{ key = "LeftArrow", mods = "CTRL", action = act.SendKey({ mods = "ALT", key = "b" }) },
+	{ key = "RightArrow", mods = "OPT", action = act.SendKey({ mods = "ALT", key = "f" }) },
+	{ key = "RightArrow", mods = "CTRL", action = act.SendKey({ mods = "ALT", key = "f" }) },
+	{ key = "Backspace", mods = "SHIFT", action = act.SendKey({ key = "Backspace" }) },
 }
 
 return config

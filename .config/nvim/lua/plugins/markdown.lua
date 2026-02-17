@@ -1,5 +1,4 @@
 return {
-	{ "bullets-vim/bullets.vim", enabled = false },
 	{
 		"antonk52/markdowny.nvim",
 		enabled = false,

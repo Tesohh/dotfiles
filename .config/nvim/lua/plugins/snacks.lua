@@ -7,7 +7,10 @@ return {
 		indent = { enabled = true, animate = { enabled = false }, scope = { enabled = false } },
 		bigfile = { enabled = true },
 		image = {
-			enabled = true,
+			enabled = false,
+			-- enabled = true,
+			doc = { inline = false, float = false },
+			math = { enabled = false },
 		},
 		input = { enabled = true },
 		notifier = { enabled = true, style = "minimal", top_down = false },
@@ -15,7 +18,9 @@ return {
 	},
 	keys = {
         -- stylua: ignore start
-        { "<leader>f", function() Snacks.picker.files() end, desc = "Smart Find Files" },
+        { "<leader>f", function() Snacks.picker.files(
+            {exclude = {"*.png", "*.jpg", "*.mp3", "*.o"}}
+        ) end, desc = "Find Files" },
         { "<leader>sw", function() Snacks.picker.grep() end, desc = "Grep" },
         { "<leader>sf", function() Snacks.picker.files() end, desc = "Find Files" },
         { "<leader>ss", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },

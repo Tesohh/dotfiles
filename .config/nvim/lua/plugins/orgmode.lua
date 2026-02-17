@@ -1,7 +1,8 @@
 return {
 	"nvim-orgmode/orgmode",
-	enabled = false,
-	event = "VeryLazy",
+	enabled = true,
+	-- event = "VeryLazy",
+	ft = "org",
 	dependencies = {
 		"nvim-telescope/telescope.nvim",
 		"nvim-orgmode/telescope-orgmode.nvim",
@@ -10,9 +11,9 @@ return {
 		"saghen/blink.cmp",
 	},
 	opts = {
-		org_agenda_files = "~/Nextcloud/org/**/*",
-		org_default_notes_file = "~/Nextcloud/org/refile.org",
-		-- org_startup_folded = "inherit",
+		org_agenda_files = "~/org",
+		org_default_notes_file = "~/org/refile.org",
+		org_startup_folded = "overview",
 		org_startup_indented = true,
 		org_highlight_latex_and_related = "native",
 		notifications = {
@@ -70,10 +71,12 @@ return {
 		vim.api.nvim_create_autocmd("FileType", {
 			pattern = "org",
 			callback = function()
-				vim.cmd([[norm zx]])
+				-- vim.cmd([[norm zx]])
+				-- vim.keymap.del({ "n", "x" }, "<tab>", { buffer = true })
+				-- vim.keymap.set({ "n", "x" }, "<tab>", function() end, { buffer = true })
 				vim.keymap.set(
 					{ "n", "i" },
-					"<S-CR>",
+					"<C-CR>",
 					'<cmd>lua require("orgmode").action("org_mappings.meta_return")<CR>',
 					{
 						desc = "meta return",

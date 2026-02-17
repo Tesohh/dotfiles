@@ -6,19 +6,18 @@ local lsp_list = {
 	"html",
 	"lua_ls",
 	"jdtls",
-	"pyright",
+	"ty",
 	"svelte",
 	"rust_analyzer",
 	"tailwindcss",
 	"ts_ls",
+	"tinymist",
 }
 
 local tool_list = {
 	"clang-format",
 	"debugpy",
 	"stylua",
-	"isort",
-	"black",
 	"ruff",
 	"prettierd",
 	"codelldb",

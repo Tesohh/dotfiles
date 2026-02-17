@@ -54,9 +54,9 @@ export OBSIDIAN="~/Library/Mobile Documents/iCloud~md~obsidian/Documents/bigvaul
 export PATH=$PATH:$HOME/go/bin
 export CLANG_FORMAT_STYLE_FILE=~/.config/clang-format/.clang-format
 
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
 
 export FZF_DEFAULT_OPTS="
 	--color=fg:#908caa,bg:#191724,hl:#ebbcba

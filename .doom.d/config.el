@@ -5,8 +5,8 @@
       user-mail-address "simtesini@gmail.com")
 
 ;; Font settings
-(setq doom-font (font-spec :family "SF Mono" :size 16)
-      doom-variable-pitch-font (font-spec :family "SF Mono" :size 16))
+(setq doom-font (font-spec :family "Iosevka Extended" :size 16)
+      doom-variable-pitch-font (font-spec :family "Iosevka Extended" :size 16))
 (setq-default line-spacing 2)
 
 ;; Theme
@@ -80,6 +80,7 @@
            "%?")
           )
         )
+  (setq org-pretty-entities nil)
   (setq org-startup-folded 'overview)
   (setq org-preview-latex-default-process 'dvisvgm)
   (setq org-log-into-drawer t)
@@ -102,10 +103,10 @@
                            `("/" (:inherit 'italic :foreground ,(doom-color 'violet))))
               )))
 
-;; (after! org-modern
-;;   (setq org-modern-star 'replace)
-;;   (setq org-modern-replace-stars "◉○◈◇")
-;;   )
+(after! org-modern
+  (setq org-modern-star 'replace)
+  (setq org-modern-replace-stars "◉○◈◇")
+  )
 
 ;; Org roam
 (setq org-roam-directory "~/org/roam")

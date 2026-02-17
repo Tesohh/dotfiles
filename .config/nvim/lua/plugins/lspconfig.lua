@@ -25,5 +25,24 @@ return {
 				},
 			},
 		})
+
+		vim.lsp.config("omniscience", {
+			cmd = { "/Users/tesohh/dev/omniscience/target/debug/lsp" },
+			filetypes = { "typst" },
+			root_markers = { "omni.toml", ".git" },
+			settings = {},
+		})
+		vim.lsp.enable("omniscience")
+
+		vim.lsp.config("tinymist", {
+			cmd = { "tinymist" },
+			filetypes = { "typst" },
+			root_markers = { "omni.toml", ".git" },
+			settings = {
+				formatterMode = "typstyle",
+				-- exportPdf = "onType",
+				-- semanticTokens = "disable",
+			},
+		})
 	end,
 }

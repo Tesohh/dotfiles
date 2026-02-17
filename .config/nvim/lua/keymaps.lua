@@ -21,4 +21,5 @@ vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 
 vim.keymap.set({ "n", "x" }, "<tab>", "za")
+-- vim.keymap.del({ "n", "x" }, "<tab>", { buffer = true })
 vim.keymap.set({ "n", "x" }, "<c-i>", "<c-i>", { noremap = true })
