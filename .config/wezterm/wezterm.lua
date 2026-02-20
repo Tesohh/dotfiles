@@ -49,7 +49,7 @@ elseif wezterm.target_triple == "x86_64-unknown-linux-gnu" then
 
 	config.font_size = 18
 	config.cell_width = 0.9
-	config.line_height = 1.1
+	config.line_height = 1.0
 
 	config.window_decorations = "NONE"
 

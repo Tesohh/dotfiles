@@ -7,6 +7,13 @@ source "$HOME/zsh-scripts/zsh-lazy-nvm.zsh"
 # export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters
 
 # PS1="o%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}air %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+
+if [[ "$OSTYPE" == darwin* ]]; then
+  PROMPT_HOST="mac"
+else
+  PROMPT_HOST="$(hostname)"
+fi
+
 function git_branch_name()
 {
   branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
@@ -18,7 +25,7 @@ function git_branch_name()
   fi
 }
 setopt prompt_subst
-PS1='%F{#ebbcba}%B❰%b%f %F{#9ccfd8}%n%f %F{#c4a7e7}%B%~%b%f %F{#ebbcba}%B❱%b%f$(git_branch_name)%F{#eb6f92}❤ %f '
+PS1='%F{#ebbcba}%B❰%b%f %F{#9ccfd8}%n%f%F{#31748f}@${PROMPT_HOST}%f %F{#c4a7e7}%B%~%b%f %F{#ebbcba}%B❱%b%f$(git_branch_name) %F{#eb6f92}❤ %f '
 
 jmain() {
     javac Main.java
