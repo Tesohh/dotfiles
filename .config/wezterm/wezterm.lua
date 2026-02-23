@@ -165,6 +165,7 @@ config.keys = {
 	{ key = "s", mods = "LEADER", action = workspace_switcher.switch_workspace() },
 	{ key = "s", mods = "CMD", action = workspace_switcher.switch_workspace() },
 	{ key = "d", mods = "CMD", action = workspace_switcher.switch_to_prev_workspace() },
+	{ key = "d", mods = "LEADER", action = workspace_switcher.switch_to_prev_workspace() },
 	{ key = "c", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain") },
 	{ mods = "CMD", key = "Backspace", action = act.SendKey({ mods = "CTRL", key = "u" }) },
 	{ mods = "CTRL", key = "Backspace", action = act.SendKey({ mods = "CTRL", key = "u" }) },
@@ -175,6 +176,14 @@ config.keys = {
 	{ key = "RightArrow", mods = "OPT", action = act.SendKey({ mods = "ALT", key = "f" }) },
 	{ key = "RightArrow", mods = "CTRL", action = act.SendKey({ mods = "ALT", key = "f" }) },
 	{ key = "Backspace", mods = "SHIFT", action = act.SendKey({ key = "Backspace" }) },
+	{ key = "Space", mods = "SHIFT", action = act.SendKey({ key = "Space" }) },
 }
+
+-- do we keep this? or is it best to just get used to CTRL|SHIFT?
+if wezterm.target_triple == "x86_64-unknown-linux-gnu" then
+	for i = 1, 9, 1 do
+		table.insert(config.keys, { key = "" .. i, mods = "ALT", action = act.ActivateTab(i - 1) })
+	end
+end
 
 return config

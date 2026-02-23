@@ -33,8 +33,9 @@ jmain() {
     find . -type f -name "*.class" -delete
 }
 
+source ~/.config/p_targets.sh
 p() {
-  cd "$(find ~/Developer ~/Developer/scratchpad ~/dotfiles ~/dotfiles/.config ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents -mindepth 1 -maxdepth 1 -type d | fzf)"
+  cd "$(find $p_targets[@] -mindepth 1 -maxdepth 1 -type d | fzf)"
 }
 
 function workdir
