@@ -6,6 +6,7 @@ local lsp_list = {
 	"html",
 	"lua_ls",
 	"jdtls",
+	"jsonls",
 	"ty",
 	"svelte",
 	"rust_analyzer",

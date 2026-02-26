@@ -1,0 +1,16 @@
+font=Iosevka Extended
+background-color=#191724
+text-color=#e0def4
+border-color=#9ccfd8
+padding=10
+margin=5
+max-icon-size=32
+default-timeout=6000
+
+[urgency=low]
+border-color=#f6c177
+default-timeout=0
+
+[urgency=critical]
+border-color=#eb6f92
+default-timeout=0
