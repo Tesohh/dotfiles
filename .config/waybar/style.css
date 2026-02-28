@@ -21,46 +21,26 @@ window#waybar.hidden {
     opacity: 0.2;
 }
 
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
-
-window#waybar.termite {
-    background-color: #3F3F3F;
-}
-
-window#waybar.chromium {
-    background-color: #000000;
-    border: none;
-}
-
 button {
     border: none;
     border-radius: 0;
 }
 
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-button:hover {
-    background: inherit;
+label.module {
+    background-color: @surface;
+}
+label.module:hover {
+    background-color: @hover;
 }
 
-/* you can set a style on hover for any module like this */
-#pulseaudio:hover {
+button:hover {
+    background: inherit;
     background-color: @hover;
 }
 
 #workspaces button {
     padding: 0 5px;
-    background-color: transparent;
-}
-
-#workspaces button:hover {
-    background: @hover;
+    background-color: @overlay;
 }
 
 #workspaces button.active {
@@ -69,6 +49,7 @@ button:hover {
 
 #workspaces button.urgent {
     background-color: @attention;
+    color: @base;
 }
 
 #mode {
@@ -110,14 +91,6 @@ button:hover {
     margin-right: 0;
 }
 
-#clock:hover {
-    background-color: @hover;
-}
-
-#battery:hover {
-    background-color: @hover;
-}
-
 #battery.charging,
 #battery.plugged {
     background-color: #26A65B;
@@ -129,63 +102,9 @@ button:hover {
     }
 }
 
-/* Using steps() instead of linear as a timing function to limit cpu usage */
-#battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: steps(12);
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-#power-profiles-daemon {
-    padding-right: 15px;
-}
-
-#power-profiles-daemon:hover {
-    background-color: @hover;
-}
-
-#power-profiles-daemon.performance {
-    /* background-color: #f53c3c; */
-    /* color: #ffffff; */
-}
-
-#power-profiles-daemon.balanced {
-    /* background-color: #2980b9; */
-    /* color: #ffffff; */
-}
-
-#power-profiles-daemon.power-saver {
-    /* background-color: #2ecc71; */
-    /* color: #000000; */
-}
-
 label:focus {
     background-color: #000000;
 }
-
-#cpu:hover {
-    background-color: @hover;
-}
-
-#memory:hover {
-    background-color: @hover;
-}
-
-#disk:hover {
-    background-color: @hover;
-}
-
-#backlight {
-    /* background-color: #90b1b1; */
-}
-
-#network:hover {
-    background-color: @hover;
-}
-
 
 #network.disconnected {
     background-color: #f53c3c;
@@ -243,10 +162,6 @@ label:focus {
 #tray>.needs-attention {
     -gtk-icon-effect: highlight;
     background-color: @attention;
-}
-
-#idle_inhibitor:hover {
-    background-color: @hover;
 }
 
 #idle_inhibitor.activated {
