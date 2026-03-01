@@ -29,6 +29,7 @@ button {
 label.module {
     background-color: @surface;
 }
+
 label.module:hover {
     background-color: @hover;
 }
@@ -116,7 +117,7 @@ label:focus {
 }
 
 #pulseaudio.muted {
-    background-color: #90b1b1;
+    background-color: @love;
     /* color: #2a5c45; */
 }
 
