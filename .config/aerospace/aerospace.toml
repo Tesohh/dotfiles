@@ -56,12 +56,12 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
     run = 'layout floating'
 
 [gaps]
-inner.horizontal = 0
-inner.vertical =   0
-outer.left =       0
-outer.bottom =     0
-outer.top =        [{monitor."built-in"=0}, {monitor."odyssey"=0}, 0]
-outer.right =      0
+inner.horizontal = 4
+inner.vertical =   4
+outer.left =       4
+outer.bottom =     4
+outer.top =        4
+outer.right =      4
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -115,6 +115,7 @@ alt-ctrl-k = 'join-with up'
 alt-ctrl-l = 'join-with right'
 
 alt-shift-x = 'exec-and-forget ~/.emacs.d/bin/org-capture'
+alt-enter = 'exec-and-forget kitty --single-instance ~'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
 alt-shift-minus = 'resize smart -50'
