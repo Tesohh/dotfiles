@@ -11,8 +11,8 @@ vim.keymap.set({ "n", "x" }, "<C-h>", "<C-w>h")
 vim.keymap.set({ "n", "x" }, "<C-j>", "<C-w>j")
 vim.keymap.set({ "n", "x" }, "<C-k>", "<C-w>k")
 vim.keymap.set({ "n", "x" }, "<C-l>", "<C-w>l")
-vim.keymap.set({ "n", "x" }, "<leader>|", "vsplit")
-vim.keymap.set({ "n", "x" }, "<leader>_", "split")
+vim.keymap.set({ "n", "x" }, "<leader>|", "<CMD>vsplit<cr>")
+vim.keymap.set({ "n", "x" }, "<leader>_", "<cmd>split<cr>")
 
 -- LSP
 -- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
