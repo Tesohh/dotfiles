@@ -2,6 +2,8 @@ source "$HOME/zsh-scripts/supercharge.zsh"
 source "$HOME/zsh-scripts/zsh-autosuggestions.zsh"
 source "$HOME/zsh-scripts/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "$HOME/zsh-scripts/zsh-lazy-nvm.zsh"
+source "$HOME/zsh-scripts/fzf-rose-pine.zsh"
+source "$HOME/zsh-scripts/fzf-tab/fzf-tab.plugin.zsh"
 
 # .zshenv
 # export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters
@@ -66,13 +68,6 @@ export CLANG_FORMAT_STYLE_FILE=~/.config/clang-format/.clang-format
 # [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 # eval "$(pyenv init -)"
 
-export FZF_DEFAULT_OPTS="
-	--color=fg:#908caa,bg:#191724,hl:#ebbcba
-	--color=fg+:#e0def4,bg+:#26233a,hl+:#ebbcba
-	--color=border:#403d52,header:#31748f,gutter:#191724
-	--color=spinner:#f6c177,info:#9ccfd8,separator:#403d52
-	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
-
 export EDITOR="nvim"
 
 function y() {
@@ -83,4 +78,5 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+eval "$(zoxide init zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

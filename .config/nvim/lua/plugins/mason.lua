@@ -13,6 +13,7 @@ local lsp_list = {
 	"tailwindcss",
 	"ts_ls",
 	"tinymist",
+	"zls",
 }
 
 local tool_list = {
