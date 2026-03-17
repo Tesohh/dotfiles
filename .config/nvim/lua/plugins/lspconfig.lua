@@ -32,6 +32,7 @@ return {
 		elseif vim.loop.os_uname().sysname == "Linux" then
 			omni_lsp_command = "/home/tesohh/dev/omniscience/target/debug/lsp"
 		end
+
 		vim.lsp.config("omniscience", {
 			cmd = { omni_lsp_command },
 			filetypes = { "typst" },
@@ -50,5 +51,7 @@ return {
 				-- semanticTokens = "disable",
 			},
 		})
+
+		vim.lsp.enable("hls")
 	end,
 }

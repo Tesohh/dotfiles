@@ -23,6 +23,7 @@ local tool_list = {
 	"ruff",
 	"prettierd",
 	"codelldb",
+	"goimports",
 }
 
 return {
