@@ -14,6 +14,7 @@ local lsp_list = {
 	"ts_ls",
 	"tinymist",
 	"zls",
+	"postgres_lsp",
 }
 
 local tool_list = {
@@ -24,6 +25,7 @@ local tool_list = {
 	"prettierd",
 	"codelldb",
 	"goimports",
+	"iferr",
 }
 
 return {
