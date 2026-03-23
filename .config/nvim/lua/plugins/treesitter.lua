@@ -1,6 +1,7 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
+	version = "0.10.0",
 	config = function()
 		local config = require("nvim-treesitter.configs")
 		config.setup({
@@ -9,7 +10,6 @@ return {
 			highlight = { enable = true },
 			indent = { enable = true, disable = { "html" } },
 			textobjects = {
-
 				select = {
 					enable = true,
 					keymaps = {
