@@ -9,6 +9,6 @@ vim.api.nvim_create_user_command("GitC", function(cmd)
 	msg = msg:gsub(" ", "\\ ")
 
 	vim.cmd([[Git add .]])
-	vim.cmd([[Git commit -m=]] .. msg)
+	vim.cmd([[Git commit -m ]] .. msg)
 	vim.cmd([[Git push]])
 end, { nargs = 1 })
