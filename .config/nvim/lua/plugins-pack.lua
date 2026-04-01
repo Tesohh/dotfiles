@@ -1,5 +1,6 @@
 vim.pack.add({
 	"https://github.com/neovim/nvim-lspconfig",
+	"https://github.com/nvim-treesitter/nvim-treesitter",
 	"https://github.com/nvim-mini/mini.nvim",
 	"https://github.com/folke/snacks.nvim",
 	"https://github.com/rose-pine/neovim",
@@ -13,4 +14,6 @@ vim.pack.add({
 	"https://github.com/stevearc/conform.nvim",
 	"https://github.com/kevinhwang91/promise-async",
 	"https://github.com/kevinhwang91/nvim-ufo",
+	"https://github.com/nvim-lua/plenary.nvim",
+	"https://github.com/olexsmir/gopher.nvim",
 })

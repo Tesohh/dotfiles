@@ -30,4 +30,34 @@ M.tool_list = {
 	"iferr",
 }
 
+M.treesitter_parsers = {
+	"go",
+	"gomod",
+	"gosum",
+	"sql",
+	"python",
+	"rust",
+	"lua",
+	"c",
+	"cpp",
+	"c_sharp",
+	"cmake",
+	"make",
+	"json",
+	"xml",
+	"javascript",
+	"typescript",
+	"svelte",
+	"html",
+	"css",
+	"dockerfile",
+	"toml",
+	"yaml",
+	"bash",
+	"zsh",
+	"markdown",
+	"typst",
+	"latex",
+}
+
 return M
