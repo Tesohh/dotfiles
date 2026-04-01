@@ -58,6 +58,8 @@ M.treesitter_parsers = {
 	"markdown",
 	"typst",
 	"latex",
+	"java",
+	"haskell",
 }
 
 return M
