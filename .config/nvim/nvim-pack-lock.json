@@ -1,0 +1,28 @@
+{
+  "plugins": {
+    "fyler.nvim": {
+      "rev": "15fabd5d8cf6ba8afb0a404878106ba5300843b1",
+      "src": "https://github.com/A7Lavinraj/fyler.nvim"
+    },
+    "mini.nvim": {
+      "rev": "3923662bf3d6ca49a9503f8d7196ea0450983e6a",
+      "src": "https://github.com/nvim-mini/mini.nvim"
+    },
+    "neovim": {
+      "rev": "cf2a288696b03d0934da713d66c6d71557b5c997",
+      "src": "https://github.com/rose-pine/neovim"
+    },
+    "nvim-lspconfig": {
+      "rev": "8e2084bf5e40c79c1f42210a6ef96a0a4793a763",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "oil.nvim": {
+      "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
+      "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "snacks.nvim": {
+      "rev": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e",
+      "src": "https://github.com/folke/snacks.nvim"
+    }
+  }
+}
