@@ -3,6 +3,12 @@ require("plugins.snacks")
 require("plugins.tiny-inline-diagnostic")
 require("plugins.rose-pine")
 
+-- mason
+require("mason").setup()
+require("mason-lspconfig").setup({ ensure_installed = require("lsp-tools").lsp_list })
+require("mason-tool-installer").setup({ ensure_installed = require("lsp-tools").tool_list })
+require("lsp-adhoc")
+
 -- mini
 require("plugins.icons")
 require("plugins.clue")
