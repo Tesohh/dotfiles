@@ -23,6 +23,10 @@
     "snacks.nvim": {
       "rev": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e",
       "src": "https://github.com/folke/snacks.nvim"
+    },
+    "tiny-inline-diagnostic.nvim": {
+      "rev": "ba133b3e932416e4b9507095731a6d7276878fe8",
+      "src": "https://github.com/rachartier/tiny-inline-diagnostic.nvim"
     }
   }
 }
