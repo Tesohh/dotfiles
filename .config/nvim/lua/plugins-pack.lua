@@ -8,4 +8,7 @@ vim.pack.add({
 	"https://github.com/mason-org/mason.nvim",
 	"https://github.com/mason-org/mason-lspconfig.nvim",
 	"https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
+	{ src = "https://github.com/Saghen/blink.cmp", version = vim.version.range("1.*") },
+	"https://github.com/rafamadriz/friendly-snippets",
+	"https://github.com/stevearc/conform.nvim",
 })

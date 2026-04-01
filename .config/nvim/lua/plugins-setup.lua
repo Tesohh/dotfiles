@@ -1,18 +1,20 @@
 require("oil").setup({ view_options = { show_hidden = true } })
-require("plugins.snacks")
-require("plugins.tiny-inline-diagnostic")
-require("plugins.rose-pine")
+require("configs.snacks")
+require("configs.tiny-inline-diagnostic")
+require("configs.rose-pine")
 
--- mason
+-- LSP
 require("mason").setup()
 require("mason-lspconfig").setup({ ensure_installed = require("lsp-tools").lsp_list })
 require("mason-tool-installer").setup({ ensure_installed = require("lsp-tools").tool_list })
 require("lsp-adhoc")
+require("configs.blink")
+require("configs.conform")
 
 -- mini
-require("plugins.icons")
-require("plugins.clue")
-require("plugins.hipatterns")
+require("configs.icons")
+require("configs.clue")
+require("configs.hipatterns")
 require("mini.basics").setup({options = { extra_ui = true }, mappings = { windows = true }})
 require("mini.git").setup()
 require("mini.diff").setup()
@@ -23,3 +25,4 @@ require("mini.statusline").setup()
 require("mini.jump").setup()
 require("mini.jump2d").setup()
 require("mini.notify").setup()
+-- require("mini.snippets").setup()

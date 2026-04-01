@@ -8,7 +8,7 @@ return {
 		},
 	},
 	config = function(_, opts)
-		require("rose-pine").setup(opts)
+		require(".config.nvim.lua.configs.rose-pine").setup(opts)
 		vim.cmd([[color rose-pine]])
 	end,
 }
