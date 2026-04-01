@@ -16,4 +16,6 @@ vim.pack.add({
 	"https://github.com/kevinhwang91/nvim-ufo",
 	"https://github.com/nvim-lua/plenary.nvim",
 	"https://github.com/olexsmir/gopher.nvim",
+	"https://github.com/chomosuke/typst-preview.nvim",
+	"https://github.com/HakonHarnes/img-clip.nvim",
 })

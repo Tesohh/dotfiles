@@ -27,3 +27,7 @@ require("mini.jump").setup()
 require("mini.jump2d").setup()
 require("mini.notify").setup()
 -- require("mini.snippets").setup()
+
+-- typst
+require("configs.typst-preview")
+require("configs.img-clip")
