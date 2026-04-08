@@ -3,6 +3,8 @@ require("rose-pine").setup({
 	highlight_groups = {
 		Comment = { italic = true },
 		Folded = { fg = "muted" },
+		["MiniJump2DSpot"] = { fg = "overlay", bg = "iris" },
+		["MiniJump2DSpotUnique"] = { fg = "overlay", bg = "love" },
 		["@org.keyword.todo"] = { fg = "love" },
 		["@org.keyword.done"] = { fg = "muted" },
 		["@org.bold"] = { fg = "love" },
@@ -22,4 +24,4 @@ require("rose-pine").setup({
 	},
 })
 
-vim.cmd [[colorscheme rose-pine]]
+vim.cmd([[colorscheme rose-pine]])

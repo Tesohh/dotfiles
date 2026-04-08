@@ -24,7 +24,7 @@ require("mini.pairs").setup()
 require("mini.bracketed").setup()
 require("mini.statusline").setup()
 require("mini.jump").setup()
-require("mini.jump2d").setup()
+require("mini.jump2d").setup({ view = { dim = true } })
 require("mini.notify").setup()
 -- require("mini.snippets").setup()
 
