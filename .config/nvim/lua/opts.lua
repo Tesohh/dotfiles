@@ -5,3 +5,4 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.winborder = "rounded"
 vim.opt.title = true
+vim.o.titlestring = "%{fnamemodify(getcwd(),':t')}/%{expand('%:.')} - Nvim"

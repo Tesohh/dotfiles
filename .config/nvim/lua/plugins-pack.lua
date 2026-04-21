@@ -5,6 +5,8 @@ vim.pack.add({
 	"https://github.com/folke/snacks.nvim",
 	"https://github.com/rose-pine/neovim",
 	"https://github.com/stevearc/oil.nvim",
+	"https://github.com/malewicz1337/oil-git.nvim",
+	"https://github.com/JezerM/oil-lsp-diagnostics.nvim",
 	"https://github.com/rachartier/tiny-inline-diagnostic.nvim",
 	"https://github.com/mason-org/mason.nvim",
 	"https://github.com/mason-org/mason-lspconfig.nvim",
@@ -18,4 +20,5 @@ vim.pack.add({
 	"https://github.com/olexsmir/gopher.nvim",
 	"https://github.com/chomosuke/typst-preview.nvim",
 	"https://github.com/HakonHarnes/img-clip.nvim",
+	"https://github.com/shortcuts/no-neck-pain.nvim",
 })

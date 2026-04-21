@@ -1,4 +1,6 @@
 require("oil").setup({ view_options = { show_hidden = true } })
+require("oil-git").setup()
+require("oil-lsp-diagnostics").setup()
 require("configs.snacks")
 require("configs.tiny-inline-diagnostic")
 require("configs.rose-pine")
@@ -31,3 +33,6 @@ require("mini.notify").setup()
 -- typst
 require("configs.typst-preview")
 require("configs.img-clip")
+
+-- other
+require("configs.noneckpain")
