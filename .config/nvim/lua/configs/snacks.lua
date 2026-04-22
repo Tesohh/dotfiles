@@ -21,9 +21,13 @@ vim.keymap.set("n","<leader>sd",function() Snacks.picker.diagnostics() end,{desc
 vim.keymap.set("n","<leader>gs",function() Snacks.picker.git_status() end,{desc="Git status"})
 vim.keymap.set("n","<leader>gh",function() Snacks.picker.git_status() end,{desc="Git status"})
 vim.keymap.set("n","<leader>j",function() Snacks.picker.lines() end,{desc="Jump to Buffer Lines"})
+
 vim.keymap.set("n","gd",function() Snacks.picker.lsp_definitions() end,{desc="Goto Definition"})
 vim.keymap.set("n","gD",function() Snacks.picker.lsp_declarations() end,{desc="Goto Declaration"})
 vim.keymap.set("n","grr",function() Snacks.picker.lsp_references() end,{desc="References",nowait=true})
 vim.keymap.set("n","gri",function() Snacks.picker.lsp_implementations() end,{desc="Goto Implementation"})
 vim.keymap.set("n","grt",function() Snacks.picker.lsp_type_definitions() end,{desc="Goto Type Definition"})
+
+vim.keymap.set("n","<leader>zdd",function() Snacks.dim.enable() end,{desc="Zen dim enable"})
+vim.keymap.set("n","<leader>zds",function() Snacks.dim.disable() end,{desc="Zen dim stop"})
 -- stylua: ignore end

@@ -17,7 +17,6 @@ M.lsp_list = {
 	"tinymist",
 	"zls",
 	"postgres_lsp",
-	"hls",
 }
 
 M.tool_list = {
