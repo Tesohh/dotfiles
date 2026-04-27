@@ -36,3 +36,4 @@ require("configs.img-clip")
 
 -- other
 require("configs.noneckpain")
+require("configs.gopher")
