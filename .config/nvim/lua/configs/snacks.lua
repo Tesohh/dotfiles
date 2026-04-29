@@ -7,7 +7,7 @@ require("snacks").setup({
 		math = { enabled = false },
 	},
 	input = { enabled = true },
-	notifier = { enabled = false, style = "minimal", top_down = false },
+	notifier = { enabled = true, style = "minimal", top_down = true },
 	picker = { enabled = true, main = { file = false } },
 })
 
