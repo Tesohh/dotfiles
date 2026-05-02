@@ -21,4 +21,5 @@ vim.pack.add({
 	"https://github.com/chomosuke/typst-preview.nvim",
 	"https://github.com/HakonHarnes/img-clip.nvim",
 	"https://github.com/shortcuts/no-neck-pain.nvim",
+	"https://github.com/cbochs/grapple.nvim",
 })
